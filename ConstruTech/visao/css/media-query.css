@@ -1,0 +1,41 @@
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column; 
+        width: 100%; 
+    }
+
+    .login-container {
+        padding: 20px; 
+    }
+
+    button {
+        width: 100%; 
+    }
+
+    .button {
+        width: 100%; 
+    }
+
+    .image-container {
+        display: none; 
+    }
+}
+
+@media (max-width: 480px) {
+    .input-group input {
+        font-size: 14px; 
+    }
+
+    .login-form h2 {
+        font-size: 18px; 
+    }
+
+    .main-container {
+        padding: 10px; 
+    }
+
+    .button {
+        width: auto;
+        margin-right: 10px; 
+    }
+}

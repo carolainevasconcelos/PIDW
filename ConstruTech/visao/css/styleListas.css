@@ -1,0 +1,73 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo do corpo */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1b1b1b;
+    color: #f5f5f5;
+}
+
+/* Cabeçalho */
+h1 {
+    text-align: center;
+    margin: 20px 0;
+    color: #ffd700;
+}
+
+/* Botão de sair */
+.sair a {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #333;
+    color: #ffd700;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-left: 20px;
+}
+
+.sair a:hover {
+    background-color: #ffd700;
+    color: #333;
+}
+
+/* Tabela */
+.table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+.table th, .table td {
+    padding: 10px;
+    border: 1px solid #333;
+    text-align: left;
+}
+
+.table thead th {
+    background-color: #333;
+    color: #ffd700;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #2b2b2b;
+}
+
+.table tbody tr:hover {
+    background-color: #444;
+}
+
+/* Imagens de ação */
+.image img {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.2s;
+}
+
+.image:hover img {
+    transform: scale(1.1);
+}
