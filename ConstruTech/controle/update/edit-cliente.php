@@ -32,7 +32,7 @@ if(!empty($_GET['id'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Cliente</title>
-    <link rel="stylesheet" href="../css/styleEdit.css">
+    <link rel="stylesheet" href="../../visao/css/styleEdit.css">
 </head>
 
 <body>

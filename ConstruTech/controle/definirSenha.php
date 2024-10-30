@@ -1,5 +1,5 @@
 <?php
-include_once('conexao-bd.php');
+include_once('../controle/conexao-bd.php');
 
 if (isset($_POST['submit'])) {
     $senha = $_POST['senha'];
@@ -17,7 +17,7 @@ if (isset($_POST['submit'])) {
         if (mysqli_num_rows($resultado) > 0) {
             $sqlUpdate = "UPDATE Cliente SET senha = '$senhaCriptografada' WHERE cpf = '$usuario' OR cnpj = '$usuario'";
             if (mysqli_query($conexao, $sqlUpdate)) {
-                header('Location: pagPrincipal.php');
+                header('Location: pagPrincipal.php'); // enviar para outro caminho
                 exit;
             } else {
                 echo "<script>alert('Erro ao atualizar a senha no Cliente.');</script>";
@@ -29,7 +29,7 @@ if (isset($_POST['submit'])) {
             if (mysqli_num_rows($resultado) > 0) {
                 $sqlUpdate = "UPDATE Funcionario SET senha = '$senhaCriptografada' WHERE cpf = '$usuario'";
                 if (mysqli_query($conexao, $sqlUpdate)) {
-                    header('Location: pagPrincipal.php');
+                    header('Location: pagPrincipal.php'); // enviar para outro caminho
                     exit;
                 } else {
                     echo "<script>alert('Erro ao atualizar a senha no Funcionario.');</script>";
@@ -44,7 +44,6 @@ if (isset($_POST['submit'])) {
 
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -52,7 +51,6 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="css/style-login.css">
     <script src="js/validarCampos.js" defer></script>
 </head>
-
 <body>
     <section>
         <div class="form-box">
@@ -84,14 +82,11 @@ if (isset($_POST['submit'])) {
             </div>
         </div>
     </section>
-
     <script>
-        // Volta para página
         document.getElementById("voltarBotao").addEventListener("click", function () {
             window.location.href = "index.php";
         });
 
-        // Confere se as senhas são iguais
         function confereSenha() {
             const senha = document.querySelector('input[name=senha]'); //const define uma variável cujo valor não pode ser reatribuído
             const confirmarSenha = document.querySelector('input[name=confirmarSenha]');
@@ -105,7 +100,5 @@ if (isset($_POST['submit'])) {
             }
         }
     </script>
-
 </body>
-
 </html>

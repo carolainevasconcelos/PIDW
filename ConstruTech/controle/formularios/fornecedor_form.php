@@ -31,7 +31,8 @@ if (isset($_POST['submit'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Fornecedor</title>
-    <link rel="stylesheet" href="../css/formCadastro.css">
+    <link rel="stylesheet" href="../../visao/css/formCadastro.css">
+    <script src="../../visao/js/validarCampos.js" defer></script>
 </head>
 <body>
     <h2>Cadastro de Fornecedor</h2>

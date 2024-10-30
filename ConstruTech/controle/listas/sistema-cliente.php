@@ -27,7 +27,7 @@ $result_clientes = $conexao->query($sql_clientes);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema Cliente</title>
-    <link rel="stylesheet" href="../css/styleListas.css">
+    <link rel="stylesheet" href="../../visao/css/styleListas.css">
 </head>
 
 <body>
@@ -35,7 +35,6 @@ $result_clientes = $conexao->query($sql_clientes);
         <a href="../sair.php">Sair</a>
     </div>
     <h1>Acessou o sistema</h1>
-    <!-- Forma de armazenar os dados dos usuarios de formas individuais -->
     <div>
         <table class="table">
             <thead>
@@ -54,24 +53,24 @@ $result_clientes = $conexao->query($sql_clientes);
                 <?php
                 while ($user_data = mysqli_fetch_assoc($result_clientes)) {
                     echo "<tr>";
-                        echo "<td>" . $user_data['id'] . "</td>";
-                        echo "<td>" . $user_data['nome'] . "</td>";
-                        echo "<td>" . $user_data['nome_fantasia'] . "</td>";
-                        echo "<td>" . $user_data['cpf'] . "</td>";
-                        echo "<td>" . $user_data['cnpj'] . "</td>";
-                        echo "<td>" . $user_data['email'] . "</td>";
-                        echo "<td>" . $user_data['telefone'] . "</td>";
-                        echo "<td>" . $user_data['endereco'] . "</td>";
-                        echo "<td>
-                            <a class='image' href='../update/edit-cliente.php?id=" . $user_data['id'] . "'>
-                                <img src='../img/image-pencil.png' alt='Editar'>
-                            </a>
-                        </td>";
-                        echo "<td>
-                            <a class='image' href='.php'>
-                                <img src='../img/image-lixeira.png' alt=''>
-                            </a>
-                        </td>";
+                    echo "<td>" . $user_data['id'] . "</td>";
+                    echo "<td>" . $user_data['nome'] . "</td>";
+                    echo "<td>" . $user_data['nome_fantasia'] . "</td>";
+                    echo "<td>" . $user_data['cpf'] . "</td>";
+                    echo "<td>" . $user_data['cnpj'] . "</td>";
+                    echo "<td>" . $user_data['email'] . "</td>";
+                    echo "<td>" . $user_data['telefone'] . "</td>";
+                    echo "<td>" . $user_data['endereco'] . "</td>";
+                    echo "<td>
+                        <a class='image' href='../update/edit-cliente.php?id=" . $user_data['id'] . "'>
+                            <img src='../../visao/img/image-pencil.png' alt='Editar'>
+                        </a>
+                    </td>";
+                    echo "<td>
+                        <a class='image' href='../delete/delete-cliente.php?id=" . $user_data['id'] . "'>
+                            <img src='../../visao/img/image-lixeira.png' alt='Deletar'>
+                        </a>
+                    </td>";
                     echo "</tr>";
                 }
                 ?>

@@ -44,8 +44,8 @@ if (isset($_POST['submit'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar Transação Financeira</title>
-    <link rel="stylesheet" href="../css/formCadastro.css">
-    <script src="../js/validarCampos.js" defer></script>
+    <link rel="stylesheet" href="../../visao/css/formCadastro.css">
+    <script src="../../visao/js/validarCampos.js" defer></script>
 </head>
 <body>
     <h2>Cadastro de Transação Financeira</h2>

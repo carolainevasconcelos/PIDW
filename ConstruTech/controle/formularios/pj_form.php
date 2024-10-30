@@ -33,8 +33,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar Pessoa Juridica</title>
-    <link rel="stylesheet" href="../css/formCadastro.css">
-    <script src="../js/validarCampos.js" defer></script>
+    <link rel="stylesheet" href="../../visao/css/formCadastro.css">
+    <script src="../../visao/js/validarCampos.js" defer></script> 
 </head>
 
 <body>
@@ -43,7 +43,7 @@
 
             <form action="" method="post">
                 <div class="titulo">
-                    <img src="../img/ferramentas.png" alt="">
+                    <img src="../../visao/img/ferramentas.png" alt="">
                     <h1>Cadastrar Cliente Juridico</h1>
                 </div>
 

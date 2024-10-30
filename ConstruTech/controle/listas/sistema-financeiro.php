@@ -27,7 +27,7 @@ $result_financeiro = $conexao->query($sql_financeiro);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema Financeiro</title>
-    <link rel="stylesheet" href="../css/styleListas.css">
+    <link rel="stylesheet" href="../../visao/css/styleListas.css">
 </head>
 
 <body>
@@ -61,12 +61,12 @@ $result_financeiro = $conexao->query($sql_financeiro);
                         echo "<td>" . $user_data['fornecedor_id'] . "</td>";
                         echo "<td>
                             <a class='image' href='../update/edit-financeiro.php?id=" . $user_data['id'] . "'>
-                                <img src='../img/image-pencil.png' alt='Editar'>
+                                <img src='../../visao/img/image-pencil.png' alt='Editar'>
                             </a>
                         </td>";
                         echo "<td>
                             <a class='image' href='../delete/delete-financeiro.php?id=" . $user_data['id'] . "'>
-                                <img src='../img/image-lixeira.png' alt='Deletar'>
+                                <img src='../../visao/img/image-lixeira.png' alt='Deletar'>
                             </a>
                         </td>";
                     echo "</tr>";

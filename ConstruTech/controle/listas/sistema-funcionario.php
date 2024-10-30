@@ -27,7 +27,7 @@ $result_funcionario = $conexao->query($sql_funcionario);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema Funcionario</title>
-    <link rel="stylesheet" href="../css/styleListas.css">
+    <link rel="stylesheet" href="../../visao/css/styleListas.css">
 </head>
 
 <body>
@@ -65,12 +65,12 @@ $result_funcionario = $conexao->query($sql_funcionario);
                         echo "<td>" . $user_data['setor'] . "</td>";
                         echo "<td>
                             <a class='image' href='../update/edit-funcionario.php?id=" . $user_data['id'] . "'>
-                                <img src='../img/image-pencil.png' alt='Editar'>
+                                <img src='../../visao/img/image-pencil.png' alt='Editar'>
                             </a>
                         </td>";
-                        echo "<td>
-                            <a class='image' href='.php'>
-                                <img src='../img/image-lixeira.png' alt=''>
+                            echo "<td>
+                            <a class='image' href='../delete/delete-funcionario.php?id=" . $user_data['id'] . "'>
+                                <img src='../../visao/img/image-lixeira.png' alt='Deletar'>
                             </a>
                         </td>";
                     echo "</tr>";

@@ -1,24 +1,24 @@
 <?php
-    session_start();
-    include_once('../conexao-bd.php');
+session_start();
+include_once('../conexao-bd.php');
 
-    //print_r($_SESSION);
-    
-    if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == true)) {
-    
-        unset($_SESSION['usuario']);
-        unset($_SESSION['senha']);
-    
-        header('Location: index.php');
-    }
-    
-    $logado = $_SESSION['usuario'];
-    
-    $sql_fornecedor = "SELECT * FROM Fornecedor ORDER BY id ASC";
-    
-    $result_fornecedor = $conexao->query($sql_fornecedor);
-    
-    // print_r($result_fornecedor);
+//print_r($_SESSION);
+
+if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == true)) {
+
+    unset($_SESSION['usuario']);
+    unset($_SESSION['senha']);
+
+    header('Location: index.php');
+}
+
+$logado = $_SESSION['usuario'];
+
+$sql_fornecedor = "SELECT * FROM Fornecedor ORDER BY id ASC";
+
+$result_fornecedor = $conexao->query($sql_fornecedor);
+
+// print_r($result_fornecedor);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,7 +27,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema Funcionario</title>
-    <link rel="stylesheet" href="../css/styleListas.css">
+    <link rel="stylesheet" href="../../visao/css/styleListas.css">
 </head>
 
 <body>
@@ -60,13 +60,15 @@
                     echo "<td>" . htmlspecialchars($user_data['telefone']) . "</td>";
                     echo "<td>" . htmlspecialchars($user_data['endereco']) . "</td>";
                     echo "<td>
-                            <a class='image' href='../update/edit-fornecedor.php?id=" . $user_data['id'] . "'>
-                                <img src='../img/image-pencil.png' alt='Editar'>
-                            </a>
-                            <a class='image' href='delete-fornecedor.php?id=" . $user_data['id'] . "'>
-                                <img src='../img/image-lixeira.png' alt='Excluir'>
-                            </a>
-                          </td>";
+                        <a class='image' href='../update/edit-fornecedor.php?id=" . $user_data['id'] . "'>
+                            <img src='../../visao/img/image-pencil.png' alt='Editar'>
+                        </a>
+                    </td>";
+                        echo "<td>
+                        <a class='image' href='../delete/delete-fornecedor.php?id=" . $user_data['id'] . "'>
+                            <img src='../../visao/img/image-lixeira.png' alt='Deletar'>
+                        </a>
+                    </td>";
                     echo "</tr>";
                 }
                 ?>
@@ -74,4 +76,5 @@
         </table>
     </div>
 </body>
+
 </html>

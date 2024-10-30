@@ -7,8 +7,8 @@
     <title>Login - ConstruTech</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="css/style-login.css">
-    <script src="js/validarCampos.js" defer></script>
+    <link rel="stylesheet" href="../visao/css/style-login.css">
+    <script src="../visao/js/validarCampos.js" defer></script>
 </head>
 
 <body>
@@ -17,7 +17,7 @@
             <div>
                 <form action="login.php" method="post">
                     <div class="titulo">
-                        <img src="img/ferramentas.png" alt="">
+                        <img src="../visao/img/ferramentas.png" alt="">
                         <h1>Login</h1>
                     </div>
 
