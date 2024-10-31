@@ -2,8 +2,6 @@
 session_start();
 include_once('../conexao-bd.php');
 
-//print_r($_SESSION);
-
 if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == true)) {
 
     unset($_SESSION['usuario']);
@@ -18,7 +16,6 @@ $sql_funcionario = "SELECT * FROM Funcionario ORDER BY id ASC";
 
 $result_funcionario = $conexao->query($sql_funcionario);
 
-// print_r($result_funcionario);
 ?>
 <!DOCTYPE html>
 <html lang="en">

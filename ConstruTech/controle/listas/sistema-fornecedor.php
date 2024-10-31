@@ -2,8 +2,6 @@
 session_start();
 include_once('../conexao-bd.php');
 
-//print_r($_SESSION);
-
 if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == true)) {
 
     unset($_SESSION['usuario']);
@@ -18,7 +16,6 @@ $sql_fornecedor = "SELECT * FROM Fornecedor ORDER BY id ASC";
 
 $result_fornecedor = $conexao->query($sql_fornecedor);
 
-// print_r($result_fornecedor);
 ?>
 <!DOCTYPE html>
 <html lang="en">

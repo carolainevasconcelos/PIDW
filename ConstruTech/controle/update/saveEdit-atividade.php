@@ -7,32 +7,36 @@ if (isset($_POST['update'])) {
     $descricao = $_POST['descricao'];
     $data_inicio = $_POST['data_inicio'];
     $data_termino = $_POST['data_termino'];
-    $status = $_POST['statu'] ?? ''; 
+    $status = $_POST['statu'] ?? '';
     $funcionario_id = $_POST['funcionario_id'] ?? null;
     $projeto_id = $_POST['projeto_id'] ?? null;
 
-    $stmt = $conexao->prepare("UPDATE atividade SET 
-        nome_atividade = ?,  
-        descricao = ?,  
-        data_inicio = ?,  
-        data_termino = ?, 
-        status = ?,
-        funcionario_id = ?,
-        projeto_id = ? 
-    WHERE id = ?");
+    // Define a consulta para selecionar a atividade com o ID fornecido
+    $sqlSelect = "SELECT * FROM Atividade WHERE id='$id'";
+    $result_atividade = $conexao->query($sqlSelect);
 
-    $stmt->bind_param("ssssssss", $nome_atividade, $descricao, $data_inicio, $data_termino, $status, 
-                      $funcionario_id, $projeto_id, $id);
+    if ($result_atividade && $result_atividade->num_rows > 0) {
+        $sqlUpdate = "UPDATE Atividade SET 
+            nome_atividade='$nome_atividade', 
+            descricao='$descricao', 
+            data_inicio='$data_inicio', 
+            data_termino='$data_termino', 
+            status='$status', 
+            funcionario_id=" . ($funcionario_id ? "'$funcionario_id'" : "NULL") . ", 
+            projeto_id=" . ($projeto_id ? "'$projeto_id'" : "NULL") . " 
+        WHERE id='$id'";
 
-    if ($stmt->execute()) {
-        echo "Atividade atualizada com sucesso!";
+        $result = $conexao->query($sqlUpdate);
+
+        if ($result) {
+            header("Location: ../listas/sistema-atividade.php");
+            exit();
+        } else {
+            echo "Erro ao atualizar a atividade: " . $conexao->error;
+        }
     } else {
-        echo "Erro ao atualizar atividade: " . $stmt->error;
+        header("Location: ../listas/sistema-atividade.php");
+        exit();
     }
-
-    $stmt->close();
-} else {
-    header("Location: ../listas/sistema-atividade.php"); 
-    exit(); 
 }
 ?>

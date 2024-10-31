@@ -3,27 +3,25 @@ session_start();
 include_once('../conexao-bd.php');
 
 if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == true)) {
-
     unset($_SESSION['usuario']);
     unset($_SESSION['senha']);
-
     header('Location: index.php');
 }
 
 $logado = $_SESSION['usuario'];
 
-$sql_clientes = "SELECT * FROM Cliente ORDER BY id ASC";
+$sql_documentos = "SELECT * FROM Documentos ORDER BY id ASC"; 
 
-$result_clientes = $conexao->query($sql_clientes);
-
+$result_documentos = $conexao->query($sql_documentos);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema Cliente</title>
+    <title>Sistema</title>
     <link rel="stylesheet" href="../../visao/css/styleListas.css">
 </head>
 
@@ -37,34 +35,30 @@ $result_clientes = $conexao->query($sql_clientes);
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Nome fantasia</th>
-                    <th scope="col">CPF</th>
-                    <th scope="col">CNPJ</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Telefone</th>
-                    <th scope="col">Endereco</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Descrição</th>
+                    <th scope="col">Data Geração</th>
+                    <th scope="col">Data Emissão</th>
+                    <th scope="col">Arquivo</th>
+                    <th scope="col">Projeto ID</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
-                while ($user_data = mysqli_fetch_assoc($result_clientes)) {
+                while ($user_data = mysqli_fetch_assoc($result_documentos)) { 
                     echo "<tr>";
                     echo "<td>" . $user_data['id'] . "</td>";
-                    echo "<td>" . $user_data['nome'] . "</td>";
-                    echo "<td>" . $user_data['nome_fantasia'] . "</td>";
-                    echo "<td>" . $user_data['cpf'] . "</td>";
-                    echo "<td>" . $user_data['cnpj'] . "</td>";
-                    echo "<td>" . $user_data['email'] . "</td>";
-                    echo "<td>" . $user_data['telefone'] . "</td>";
-                    echo "<td>" . $user_data['endereco'] . "</td>";
+                    echo "<td>" . $user_data['tipo_documento'] . "</td>"; 
+                    echo "<td>" . $user_data['descricao'] . "</td>"; 
+                    echo "<td>" . $user_data['data_geracao'] . "</td>"; 
+                    echo "<td>" . $user_data['data_emissao'] . "</td>"; 
+                    echo "<td>" . $user_data['arquivo'] . "</td>"; 
+                    echo "<td>" . $user_data['projeto_id'] . "</td>"; 
                     echo "<td>
-                        <a class='image' href='../update/edit-cliente.php?id=" . $user_data['id'] . "'>
+                        <a class='image' href='../update/edit-documento.php?id=" . $user_data['id'] . "'>
                             <img src='../../visao/img/image-pencil.png' alt='Editar'>
                         </a>
-                    </td>";
-                    echo "<td>
-                        <a class='image' href='../delete/delete-cliente.php?id=" . $user_data['id'] . "'>
+                        <a class='image' href='../delete/delete-documento.php?id=" . $user_data['id'] . "'>
                             <img src='../../visao/img/image-lixeira.png' alt='Deletar'>
                         </a>
                     </td>";

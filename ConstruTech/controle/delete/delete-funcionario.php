@@ -8,7 +8,6 @@ if (!empty($_GET['id'])) {
 
     $result = $conexao->query($sqlSelect);
 
-    // print_r($result);
 
     if ($result->num_rows > 0) {
         

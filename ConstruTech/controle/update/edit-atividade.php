@@ -9,8 +9,6 @@ if (!empty($_GET['id'])) {
 
     if ($result_atividade->num_rows > 0) {
         $user_data = mysqli_fetch_assoc($result_atividade);
-
-        // Recuperando os valores do banco de dados
         $nome = $user_data['nome_atividade'];
         $descricao = $user_data['descricao'];
         $data_inicio = $user_data['data_inicio'];

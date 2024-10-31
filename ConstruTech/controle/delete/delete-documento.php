@@ -4,17 +4,17 @@ if (!empty($_GET['id'])) {
 
     $id = $_GET['id'];
 
-    $sqlSelect = "SELECT * FROM cliente WHERE id=$id";
+    $sqlSelect = "SELECT * FROM documentos WHERE id=$id";
 
     $result = $conexao->query($sqlSelect);
 
     if ($result->num_rows > 0) {
         
-        $sqlDelete = "DELETE FROM cliente  WHERE id=$id";
+        $sqlDelete = "DELETE FROM documentos  WHERE id=$id";
         
         $resultDelete = $conexao->query($sqlDelete);
     } else {
-        header('Location: sistema-cliente.php');
+        header('Location: sistema-documento.php');
     }
 }
 ?>

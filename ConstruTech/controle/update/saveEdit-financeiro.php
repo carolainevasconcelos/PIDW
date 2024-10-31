@@ -11,31 +11,35 @@ if (isset($_POST['update'])) {
     $fornecedor_id = $_POST['fornecedor_id'] ?? null;
 
     if (!empty($transacao) && !empty($valor) && !empty($data) && !empty($descricao)) {
-        // Verifica se a transação é receita ou despesa
+        //receita
         if ($transacao === 'receita') {
-            $stmt = $conexao->prepare("UPDATE Financeiro SET 
-                tipo_transacao = ?, valor = ?, data = NULLIF(?, ''), 
-                descricao = ?, projeto_id = ?, fornecedor_id = NULL 
-                WHERE id = ?");
-            $stmt->bind_param("sdssii", $transacao, $valor, $data, $descricao, $projeto_id, $id);
+            $sqlUpdate = "UPDATE Financeiro SET 
+                tipo_transacao='$transacao', 
+                valor='$valor', 
+                data='$data', 
+                descricao='$descricao', 
+                projeto_id='$projeto_id', 
+                fornecedor_id=NULL 
+            WHERE id=$id";
+        //despesa
         } elseif ($transacao === 'despesa') {
-            $stmt = $conexao->prepare("UPDATE Financeiro SET 
-                tipo_transacao = ?, valor = ?, data = NULLIF(?, ''), 
-                descricao = ?, projeto_id = NULL, fornecedor_id = ? 
-                WHERE id = ?");
-            $stmt->bind_param("sdssi", $transacao, $valor, $data, $descricao, $fornecedor_id, $id);
+            $sqlUpdate = "UPDATE Financeiro SET 
+                tipo_transacao='$transacao', 
+                valor='$valor', 
+                data='$data', 
+                descricao='$descricao', 
+                projeto_id=NULL, 
+                fornecedor_id='$fornecedor_id' 
+            WHERE id=$id";
         }
 
-        if ($stmt->execute()) {
-            echo "<script>alert('Transação atualizada com sucesso!');</script>";
-            echo "<script>window.location.href = '../listas/sistema-financeiro.php';</script>";
+        $result = $conexao->query($sqlUpdate);
+
+        if ($result) {
+            header("Location: ../listas/sistema-financeiro.php");
         } else {
-            echo "<script>alert('Erro ao atualizar transação: " . $stmt->error . "');</script>";
+            echo "Erro ao atualizar o registro financeiro: " . $conexao->error;
         }
-
-        $stmt->close();
-    } else {
-        echo "<script>alert('Erro: Todos os campos obrigatórios devem ser preenchidos.');</script>";
     }
 } else {
     header("Location: ../listas/sistema-financeiro.php");

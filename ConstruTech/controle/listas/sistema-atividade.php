@@ -10,7 +10,6 @@ if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == tr
 
 $logado = $_SESSION['usuario'];
 
-// Consulta SQL para buscar os dados com os nomes do funcionário e do projeto
 $sql_projeto = "SELECT Atividade.id, Funcionario.nome AS nome_funcionario, Projeto.nome AS nome_projeto, 
                 Atividade.nome_atividade, Atividade.descricao, Atividade.data_inicio, 
                 Atividade.data_termino, Atividade.status
