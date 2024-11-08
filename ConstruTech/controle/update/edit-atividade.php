@@ -29,7 +29,7 @@ if (!empty($_GET['id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Atividade</title>
-    <link rel="stylesheet" href="../../visao/css/styleEdit.css">
+    <link rel="stylesheet" href="../../visao/css/formCadastro.css">
 </head>
 <body>
     <form action="saveEdit-atividade.php" method="POST">

@@ -31,76 +31,73 @@ if (!empty($_GET['id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Funcionario</title>
-    <link rel="stylesheet" href="../../visao/css/styleEdit.css">
+    <link rel="stylesheet" href="../../visao/css/formCadastro.css">
 </head>
 
 <body>
-    <form action="saveEdit-pp.php" method="POST">
-        <h1>Editar Funcionario</h1>
+    <section class="section-funcionario">
+        <div class="form-container" id="div-funcionario">
+            <form action="saveEdit-pp.php" method="POST">
+                <div class="titulo">
+                    <img src="../../visao/img/ferramentas.png" alt="">
+                    <h1>Editar Funcionario</h1>
+                </div>
 
-        <div>
-            <label for="nome">Nome:</label>
-            <input type="text" value="<?php echo htmlspecialchars($nome); ?>" id="nome" name="nome" required>
-        </div>
-        
-        <br>
-        
-        <div>
-            <label for="cpf">CPF:</label>
-            <input type="text" value="<?php echo htmlspecialchars($cpf); ?>" id="cpf" name="cpf" required>
-        </div>
-        
-        <br>
-        
-        <div>
-            <label for="email">Email:</label>
-            <input type="email" value="<?php echo htmlspecialchars($email); ?>" id="email" name="email" required>
-        </div>
-        
-        <br>
-        
-        <div>
-            <label for="telefone">Telefone:</label>
-            <input type="text" value="<?php echo htmlspecialchars($telefone); ?>" id="telefone" name="telefone">
-        </div>
-        
-        <br>
-        
-        <div>
-            <label for="endereco">Endereço:</label>
-            <input type="text" value="<?php echo htmlspecialchars($endereco); ?>" id="endereco" name="endereco">
-        </div>
+                <div class="input-group">
+                    <label for="nome">Nome:</label>
+                    <input type="text" value="<?php echo htmlspecialchars($nome); ?>" id="nome" name="nome" required>
+                </div>
 
-        <br>
+                <div class="input-group">
+                    <label for="cpf">CPF:</label>
+                    <input type="text" value="<?php echo htmlspecialchars($cpf); ?>" id="cpf" name="cpf" required>
+                </div>
 
-        <div>
-            <label for="data_admissao">Data de Admissão:</label>
-            <input type="date" value="<?php echo htmlspecialchars($data_admissao); ?>" id="data_admissao" name="data_admissao" required>
+                <div class="input-group">
+                    <label for="email">Email:</label>
+                    <input type="email" value="<?php echo htmlspecialchars($email); ?>" id="email" name="email"
+                        required>
+                </div>
+
+                <div class="input-group">
+                    <label for="telefone">Telefone:</label>
+                    <input type="text" value="<?php echo htmlspecialchars($telefone); ?>" id="telefone" name="telefone">
+                </div>
+
+                <div class="input-group">
+                    <label for="endereco">Endereço:</label>
+                    <input type="text" value="<?php echo htmlspecialchars($endereco); ?>" id="endereco" name="endereco">
+                </div>
+
+                <div class="input-group">
+                    <label for="data_admissao">Data de Admissão:</label>
+                    <input type="date" value="<?php echo htmlspecialchars($data_admissao); ?>" id="data_admissao"
+                        name="data_admissao" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="cargo">Cargo:</label>
+                    <input type="text" value="<?php echo htmlspecialchars($cargo); ?>" id="cargo" name="cargo" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="setor">Setor:</label>
+                    <input type="text" value="<?php echo htmlspecialchars($setor); ?>" id="setor" name="setor" required>
+                </div>
+
+                <!-- Campo oculto para o ID do funcionario -->
+                <input type="hidden" name="id" value="<?php echo htmlspecialchars($id); ?>">
+
+
+                <input type="submit" name="submit" value="Salvar" id="botao">
+
+            </form>
+
+
+            <a href="../listas/sistema-funcionario.php">Voltar</a>
+
         </div>
-
-        <br>
-
-        <div>
-            <label for="cargo">Cargo:</label>
-            <input type="text" value="<?php echo htmlspecialchars($cargo); ?>" id="cargo" name="cargo" required>
-        </div>
-
-        <br>
-
-        <div>
-            <label for="setor">Setor:</label>
-            <input type="text" value="<?php echo htmlspecialchars($setor); ?>" id="setor" name="setor" required>
-        </div>
-
-        <!-- Campo oculto para o ID do funcionario -->
-        <input type="hidden" name="id" value="<?php echo htmlspecialchars($id); ?>">
-        
-        <input type="submit" name="update" id="submit" value="Salvar">
-    </form>
-    
-    <div>
-        <a href="../listas/sistema-funcionario.php">Voltar</a>
-    </div>
+    </section>
 </body>
 
 </html>

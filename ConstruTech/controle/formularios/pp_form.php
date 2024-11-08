@@ -1,33 +1,33 @@
 <?php
-    include_once('../conexao-bd.php');
+include_once('../conexao-bd.php');
 
-    $nome = '';
-    $cpf = '';
-    $email = '';
-    $telefone = '';
-    $endereco = '';
-    $data_admissao = '';
-    $cargo = '';
-    $setor = '';
+$nome = '';
+$cpf = '';
+$email = '';
+$telefone = '';
+$endereco = '';
+$data_admissao = '';
+$cargo = '';
+$setor = '';
 
-    if(isset($_POST['submit'])){
-        $nome = $_POST['nome-pp'];
-        $cpf = $_POST['cpf-pp'];
-        $email = $_POST['email-pp'];
-        $telefone = $_POST['telefone-pp'];
-        $endereco = $_POST['endereco-pp'];
-        $data_admissao = $_POST['data_admissao'];
-        $cargo = $_POST['cargo'];
-        $setor = $_POST['setor'];
-    }
+if (isset($_POST['submit'])) {
+    $nome = $_POST['nome-pp'];
+    $cpf = $_POST['cpf-pp'];
+    $email = $_POST['email-pp'];
+    $telefone = $_POST['telefone-pp'];
+    $endereco = $_POST['endereco-pp'];
+    $data_admissao = $_POST['data_admissao'];
+    $cargo = $_POST['cargo'];
+    $setor = $_POST['setor'];
+}
 
-    $resultado = mysqli_query($conexao, "INSERT INTO funcionario (nome, cpf, email, endereco, telefone, data_admissao, cargo, setor) VALUES ('$nome', '$cpf', '$email', '$telefone', '$endereco', NULLIF('$data_admissao', ''), '$cargo', '$setor')");
+$resultado = mysqli_query($conexao, "INSERT INTO funcionario (nome, cpf, email, endereco, telefone, data_admissao, cargo, setor) VALUES ('$nome', '$cpf', '$email', '$telefone', '$endereco', NULLIF('$data_admissao', ''), '$cargo', '$setor')");
 
-    if ($resultado) {
-        echo "<script>alert('Cadastro realizado com sucesso!');</script>";
-    } else {
-        echo "<script>alert('Erro ao cadastrar: " . mysqli_error($conexao) . "');</script>";
-    }
+if ($resultado) {
+    echo "<script>alert('Cadastro realizado com sucesso!');</script>";
+} else {
+    echo "<script>alert('Erro ao cadastrar: " . mysqli_error($conexao) . "');</script>";
+}
 ?>
 
 <!DOCTYPE html>
@@ -38,7 +38,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar Funcionário</title>
     <link rel="stylesheet" href="../../visao/css/formCadastro.css">
-    <script src="../../visao/js/validarCampos.js" defer></script> 
+    <script src="../../visao/js/validarCampos.js" defer></script>
 </head>
 
 <body>
@@ -87,7 +87,12 @@
 
                 <div class="input-group">
                     <label for="setor">Setor:</label>
-                    <input type="text" id="setor" name="setor" required>
+                    <select name="setor" id="setor">
+                        <option value="">Selecione</option>
+                        <option value="administrativo">Administrativo</option>
+                        <option value="colaborativo">Colaborativo</option>
+                        <option value="gestao">Gestão</option>
+                    </select>
                 </div>
                 <input type="submit" name="submit" value="Cadastrar" id="botao">
         </div>

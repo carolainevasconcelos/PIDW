@@ -31,57 +31,57 @@ if (!empty($_GET['id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Projeto</title>
-    <link rel="stylesheet" href="../../visao/css/styleEdit.css">
+    <link rel="stylesheet" href="../../visao/css/formCadastro.css">
 </head>
 
 <body>
-    <form action="saveEdit-projeto.php" method="POST">
-        <h1>Editar Projeto</h1>
+    <section class="section-projeto">
+        <div class="form-container" id="div-projeto">
+            <form action="saveEdit-projeto.php" method="POST">
+                <div class="titulo">
+                    <img src="../../visao/img/ferramentas.png" alt="">
+                    <h1>Editar Projeto</h1>
+                </div>
 
-        <div>
-            <label for="nome">Nome do Projeto:</label>
-            <input type="text" value="<?php echo htmlspecialchars($nome); ?>" id="nome" name="nome" required>
+                <div class="input-group">
+                    <label for="nome">Nome do Projeto:</label>
+                    <input type="text" value="<?php echo htmlspecialchars($nome); ?>" id="nome" name="nome" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="descricao">Descrição:</label>
+                    <input type="text" value="<?php echo htmlspecialchars($descricao); ?>" id="descricao"
+                        name="descricao" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="data_inicio">Data de Início:</label>
+                    <input type="date" value="<?php echo htmlspecialchars($data_inicio); ?>" id="data_inicio"
+                        name="data_inicio" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="data_termino">Data de Término:</label>
+                    <input type="date" value="<?php echo htmlspecialchars($data_termino); ?>" id="data_termino"
+                        name="data_termino" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="statu">Status:</label>
+                    <input type="text" value="<?php echo htmlspecialchars($statu); ?>" id="statu" name="statu">
+                </div>
+
+                <!-- Campo oculto para o ID do projeto -->
+                <input type="hidden" name="id" value="<?php echo $id; ?>">
+
+
+                <input type="submit" name="submit" value="Salvar" id="botao">
+            </form>
+
+            <a href="../listas/sistema-projeto.php">Voltar</a>
+
         </div>
-
-        <br>
-
-        <div>
-            <label for="descricao">Descrição:</label>
-            <input type="text" value="<?php echo htmlspecialchars($descricao); ?>" id="descricao" name="descricao" required>
-        </div>
-
-        <br>
-
-        <div>
-            <label for="data_inicio">Data de Início:</label>
-            <input type="date" value="<?php echo htmlspecialchars($data_inicio); ?>" id="data_inicio" name="data_inicio" required>
-        </div>
-
-        <br>
-
-        <div>
-            <label for="data_termino">Data de Término:</label>
-            <input type="date" value="<?php echo htmlspecialchars($data_termino); ?>" id="data_termino" name="data_termino" required>
-        </div>
-
-        <br>
-
-        <div>
-            <label for="statu">Status:</label>
-            <input type="text" value="<?php echo htmlspecialchars($statu); ?>" id="statu" name="statu">
-        </div>
-
-        <br>
-
-        <!-- Campo oculto para o ID do projeto -->
-        <input type="hidden" name="id" value="<?php echo $id; ?>">
-
-        <input type="submit" name="update" id="submit" value="Salvar">
-    </form>
-
-    <div>
-        <a href="../listas/sistema-projeto.php">Voltar</a>
-    </div>
+    </section>
 </body>
 
 </html>

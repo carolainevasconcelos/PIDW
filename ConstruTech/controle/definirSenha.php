@@ -44,20 +44,22 @@ if (isset($_POST['submit'])) {
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Criar Senha - ConstruTech</title>
-    <link rel="stylesheet" href="css/style-login.css">
+    <link rel="stylesheet" href="../visao/css/style-login.css">
     <script src="js/validarCampos.js" defer></script>
 </head>
+
 <body>
     <section>
         <div class="form-box">
             <div>
                 <form action="" method="post" onsubmit="return confereSenha();">
                     <div class="titulo">
-                        <img src="img/ferramentas.png" alt="">
+                        <img src="../visao/img/ferramentas.png" alt="">
                         <h1>Criar Senha</h1>
                     </div>
 
@@ -76,15 +78,18 @@ if (isset($_POST['submit'])) {
                         <label for="">Confirmar senha</label>
                     </div>
 
-                    <button type="submit" name="submit" class="buttons">Criar</button>
-                    <button type="button" class="buttons" id="voltarBotao">Voltar</button>
+                    <div class="button-container">
+                        <input type="submit" class="buttons" name="submit" value="Criar">
+                        <button type="button" class="buttons" id="voltarBotao">Voltar</button>
+                    </div>
+
                 </form>
             </div>
         </div>
     </section>
     <script>
         document.getElementById("voltarBotao").addEventListener("click", function () {
-            window.location.href = "index.php";
+            window.location.href = "../visao/loginPag.php";
         });
 
         function confereSenha() {
@@ -101,4 +106,5 @@ if (isset($_POST['submit'])) {
         }
     </script>
 </body>
+
 </html>

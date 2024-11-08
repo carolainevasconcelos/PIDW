@@ -15,7 +15,7 @@
     <section>
         <div class="form-box">
             <div>
-                <form action="login.php" method="post">
+                <form action="../controle/login.php" method="post">
                     <div class="titulo">
                         <img src="../visao/img/ferramentas.png" alt="">
                         <h1>Login</h1>
@@ -33,7 +33,7 @@
                     </div>
                     <a href="#" class="link">Esqueceu sua senha?</a>
                     <input type="submit" class="button" name="submit" value="Entrar">
-                    <a href="definirSenha.php" class="link" id="create-password">&#9872; Crie uma senha</a>
+                    <a href="../controle/definirSenha.php" class="link" id="create-password">&#9872; Crie uma senha</a>
                 </form>
             </div>
         </div>

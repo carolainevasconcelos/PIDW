@@ -41,12 +41,14 @@ if (isset($_POST['submit'])) {
         <div class="form-container" id="div-atividade">
             <form action="" method="POST">
                 <div class="titulo">
+                    <img src="../../visao/img/ferramentas.png" alt="">
                     <h1>Cadastrar Atividade</h1>
                 </div>
 
-                <div>
+                <div class="input-group">
                     <label for="funcionario_id">Funcionario:</label>
                     <select id="funcionario_id" name="funcionario_id" required>
+                        <option value="">Selecione</option>
                         <?php
                         $resultado = mysqli_query($conexao, "SELECT id, nome FROM Funcionario");
                         while ($funcionario = mysqli_fetch_assoc($resultado)) {
@@ -56,9 +58,10 @@ if (isset($_POST['submit'])) {
                     </select>
                 </div>
 
-                <div>
+                <div class="input-group">
                     <label for="projeto_id">Projeto:</label>
                     <select id="projeto_id" name="projeto_id" required>
+                        <option value="">Selecione</option>
                         <?php
                         $resultado = mysqli_query($conexao, "SELECT id, nome FROM Projeto");
                         while ($projeto = mysqli_fetch_assoc($resultado)) {

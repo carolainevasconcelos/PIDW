@@ -7,7 +7,7 @@ if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == tr
     unset($_SESSION['usuario']);
     unset($_SESSION['senha']);
 
-    header('Location: index.php');
+    header('Location: loginPag.php');
 }
 
 $logado = $_SESSION['usuario'];

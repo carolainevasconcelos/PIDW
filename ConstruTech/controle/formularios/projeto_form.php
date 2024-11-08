@@ -9,12 +9,12 @@ $statu = '';
 $cliente_id = null;
 
 if (isset($_POST['submit'])) {
-    $nome = $_POST['nome-projeto'] ?? ''; 
-    $descricao = $_POST['descricao'] ?? ''; 
-    $data_inicio = $_POST['data_inicio'] ?? ''; 
-    $data_termino = $_POST['data_termino'] ?? ''; 
+    $nome = $_POST['nome-projeto'] ?? '';
+    $descricao = $_POST['descricao'] ?? '';
+    $data_inicio = $_POST['data_inicio'] ?? '';
+    $data_termino = $_POST['data_termino'] ?? '';
     $statu = $_POST['statu'] ?? '';
-    $cliente_id = $_POST['cliente_id'] ?? null; 
+    $cliente_id = $_POST['cliente_id'] ?? null;
 
     if (!empty($statu) && !empty($cliente_id) && !empty($nome)) {
         $query = "INSERT INTO Projeto (nome, descricao, data_inicio, data_termino, statu, cliente_id) 
@@ -42,51 +42,60 @@ if (isset($_POST['submit'])) {
 </head>
 
 <body>
-    <h2>Cadastrar Projeto</h2>
-    <form action="projeto_form.php" method="POST"> 
-        <div>
-            <label for="cliente_id">Cliente:</label>
-            <select id="cliente_id" name="cliente_id" required>
-                <?php
-                include_once('../conexao-bd.php');
-                $resultado = mysqli_query($conexao, "SELECT id, nome FROM Cliente");
-                while ($cliente = mysqli_fetch_assoc($resultado)) {
-                    echo "<option value='{$cliente['id']}'>{$cliente['nome']}</option>";
-                }
-                ?>
-            </select>
-        </div>
+    <section class="section-projeto">
+        <div class="form-container" id="div-projeto">
+            <form action="" method="POST">
+                <div class="titulo">
+                    <img src="../../visao/img/ferramentas.png" alt="">
+                    <h2>Cadastrar Projeto</h2>
+                </div>
+                <div class="input-group">
+                    <label for="cliente_id">Cliente:</label>
+                    <select id="cliente_id" name="cliente_id" required>
+                        <option value="">Selecione</option>
+                        <?php
+                        include_once('../conexao-bd.php');
+                        $resultado = mysqli_query($conexao, "SELECT id, nome FROM Cliente");
+                        while ($cliente = mysqli_fetch_assoc($resultado)) {
+                            echo "<option value='{$cliente['id']}'>{$cliente['nome']}</option>";
+                        }
+                        ?>
+                    </select>
+                </div>
 
-        <div>
-            <label for="nome-projeto">Nome do Projeto:</label>
-            <input type="text" id="nome-projeto" name="nome-projeto" required>
-        </div>
+                <div class="input-group">
+                    <label for="nome-projeto">Nome do Projeto:</label>
+                    <input type="text" id="nome-projeto" name="nome-projeto" required>
+                </div>
 
-        <div>
-            <label for="descricao">Descrição:</label>
-            <textarea id="descricao" name="descricao" rows="4" cols="50"></textarea>
-        </div>
+                <div class="input-group">
+                    <label for="descricao">Descrição:</label>
+                    <textarea id="descricao" name="descricao" rows="4" cols="50"></textarea>
+                </div>
 
-        <div>
-            <label for="data_inicio">Data de Início:</label>
-            <input type="date" id="data_inicio" name="data_inicio">
-        </div>
+                <div class="input-group">
+                    <label for="data_inicio">Data de Início:</label>
+                    <input type="date" id="data_inicio" name="data_inicio">
+                </div>
 
-        <div>
-            <label for="data_termino">Data de Término:</label>
-            <input type="date" id="data_termino" name="data_termino">
-        </div>
+                <div class="input-group">
+                    <label for="data_termino">Data de Término:</label>
+                    <input type="date" id="data_termino" name="data_termino">
+                </div>
 
-        <div>
-            <label for="statu">Status:</label>
-            <select id="statu" name="statu" required>
-                <option value="ativo">Ativo</option>
-                <option value="inativo">Inativo</option>
-            </select>
-        </div>
+                <div class="input-group">
+                    <label for="statu">Status:</label>
+                    <select id="statu" name="statu" required>
+                        <option value="">Selecione</option>
+                        <option value="ativo">Ativo</option>
+                        <option value="inativo">Inativo</option>
+                    </select>
+                </div>
 
-        <button type="submit" name="submit">Salvar</button>
-    </form>
+                <input type="submit" name="submit" value="Cadastrar" id="botao">
+            </form>
+        </div>
+    </section>
 </body>
 
 </html>

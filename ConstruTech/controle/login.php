@@ -22,9 +22,11 @@ if (isset($_POST['submit']) && !empty($_POST['usuario']) && !empty($_POST['senha
             $_SESSION['usuario'] = $usuario;
             $_SESSION['senha'] = $senha;
 
-            header('Location: listas/sistema-cliente.php');
+            // Aqui não precisamos mais de um campo $tipo_usuario, pois já sabemos que é um cliente
+            header('Location: ../visao/pagUsuarios-cliente.php');
+            exit();
         } else {
-            echo "<script>alert('Senha incorreta);</script>";
+            echo "<script>alert('Senha incorreta');</script>";
         }
     } else {
         $sql_funcionario = "SELECT * FROM funcionario WHERE cpf = '$usuario'";
@@ -46,8 +48,7 @@ if (isset($_POST['submit']) && !empty($_POST['usuario']) && !empty($_POST['senha
 
                 header('Location: listas/sistema-fornecedor.php');
             } else {
-                echo "<script>alert('Senha incorreta);</script>";
-                // header('Location: login.php');
+                echo "<script>alert('Senha incorreta');</script>";
             }
         }
     }

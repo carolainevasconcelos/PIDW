@@ -111,9 +111,19 @@ input:focus ~ label, input:valid ~ label{
     font-weight: 600;
 }
 
+.button-container {
+    display: flex;
+    justify-content: flex-end;  
+    margin-top: 20px;           
+}
+
 .buttons{
-    width: 70px;
-    border-radius: 10px;
+    background: #ffc904;
+    font-weight: 600;
+    width: 80px;
+    height: 40px;
+    border-radius: 40px;
+    border: none;
     margin-top: -10px;
     margin-right: 5px;
 }
@@ -130,7 +140,7 @@ input:focus ~ label, input:valid ~ label{
 }
 
 .link:hover {
-    text-decoration: underline;
+    /* text-decoration: underline; */
     color: #ffc904;
 }
 

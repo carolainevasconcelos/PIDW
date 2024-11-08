@@ -1,5 +1,5 @@
 <?php
-if(!empty($_GET['id'])){
+if (!empty($_GET['id'])) {
     include_once('../conexao-bd.php');
 
     $id = $_GET['id'];
@@ -10,8 +10,8 @@ if(!empty($_GET['id'])){
 
     // print_r($result_clientes);
 
-    if($result_clientes->num_rows > 0){
-        while ($user_data = mysqli_fetch_assoc($result_clientes)){
+    if ($result_clientes->num_rows > 0) {
+        while ($user_data = mysqli_fetch_assoc($result_clientes)) {
             $nome = $user_data['nome'];
             $nome_fantasia = $user_data['nome_fantasia'];
             $cpf = $user_data['cpf'];
@@ -32,71 +32,63 @@ if(!empty($_GET['id'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Cliente</title>
-    <link rel="stylesheet" href="../../visao/css/styleEdit.css">
+    <link rel="stylesheet" href="../../visao/css/formCadastro.css">
 </head>
 
 <body>
-    <form action="saveEdit.php" method="POST">
-        <h1>Editar Cliente</h1>
-        
-        <div>
-            <label for="nome">Nome:</label>
-            <input type="text" value="<?php echo $nome; ?>" id="nome" name="nome" required>
-        </div>
-        
-        <br>
-        
-        <div>
-            <label for="nome_fantasia">Nome Fantasia:</label>
-            <input type="text" value="<?php echo $nome_fantasia; ?>" id="nome_fantasia" name="nome_fantasia">
-        </div>
-        
-        <br>
-        
-        <div>
-            <label for="cpf">CPF:</label>
-            <input type="text" value="<?php echo $cpf; ?>" id="cpf" name="cpf">
-        </div>
-        
-        <br>
-        
-        <div>
-            <label for="cnpj">CNPJ:</label>
-            <input type="text" value="<?php echo $cnpj; ?>" id="cnpj" name="cnpj">
-        </div>
-        
-        <br>
-        
-        <div>
-            <label for="email">Email:</label>
-            <input type="email" value="<?php echo $email; ?>" id="email" name="email" required>
-        </div>
-        
-        <br>
-        
-        <div>
-            <label for="telefone">Telefone:</label>
-            <input type="text" value="<?php echo $telefone; ?>" id="telefone" name="telefone">
-        </div>
-        
-        <br>
-        
-        <div>
-            <label for="endereco">Endereço:</label>
-            <input type="text" value="<?php echo $endereco; ?>" id="endereco" name="endereco">
-        </div>
+    <section class="section-projeto">
+        <div class="form-container" id="div-projeto">
+            <form action="saveEdit-cliente.php" method="POST">
+                <div class="titulo">
+                    <img src="../../visao/img/ferramentas.png" alt="">
+                    <h1>Editar Cliente</h1>
+                </div>
+                <div class="input-group">
+                    <label for="nome">Nome:</label>
+                    <input type="text" value="<?php echo $nome; ?>" id="nome" name="nome" required>
+                </div>
 
-        <br>
+                <div class="input-group">
+                    <label for="nome_fantasia">Nome Fantasia:</label>
+                    <input type="text" value="<?php echo $nome_fantasia; ?>" id="nome_fantasia" name="nome_fantasia">
+                </div>
 
-        <!-- Campo oculto para o ID do cliente -->
-        <input type="hidden" name="id" value="<?php echo $id; ?>">
-        
-        <input type="submit" name="update" id="submit" value="Salvar">
-    </form>
-    
-    <div>
-        <a href="../listas/sistema-cliente.php">Voltar</a>
-    </div>
+                <div class="input-group">
+                    <label for="cpf">CPF:</label>
+                    <input type="text" value="<?php echo $cpf; ?>" id="cpf" name="cpf">
+                </div>
+
+                <div class="input-group">
+                    <label for="cnpj">CNPJ:</label>
+                    <input type="text" value="<?php echo $cnpj; ?>" id="cnpj" name="cnpj">
+                </div class="input-group">
+
+                <div class="input-group">
+                    <label for="email">Email:</label>
+                    <input type="email" value="<?php echo $email; ?>" id="email" name="email" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="telefone">Telefone:</label>
+                    <input type="text" value="<?php echo $telefone; ?>" id="telefone" name="telefone">
+                </div>
+
+                <div class="input-group">
+                    <label for="endereco">Endereço:</label>
+                    <input type="text" value="<?php echo $endereco; ?>" id="endereco" name="endereco">
+                </div>
+
+                <!-- Campo oculto para o ID do cliente -->
+                <input type="hidden" name="id" value="<?php echo $id; ?>">
+
+                <input type="submit" name="submit" value="Salvar" id="botao">
+            </form>
+
+            <div>
+                <a href="../listas/sistema-cliente.php">Voltar</a>
+            </div>
+        </div>
+    </section>
 </body>
 
 </html>

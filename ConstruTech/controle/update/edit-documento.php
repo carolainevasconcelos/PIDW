@@ -29,64 +29,64 @@ if (!empty($_GET['id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Documento</title>
-    <link rel="stylesheet" href="../../visao/css/styleEdit.css">
+    <link rel="stylesheet" href="../../visao/css/formCadastro.css">
 </head>
 
 <body>
-    <form action="saveEdit-documento.php" method="POST" enctype="multipart/form-data"> 
-        <h1>Editar Documento</h1>
+    <section class="section-documento">
+        <div class="form-container" id="div-documento">
+            <form action="saveEdit-documento.php" method="POST" enctype="multipart/form-data">
+                <div class="titulo">
+                    <img src="../../visao/img/ferramentas.png" alt="">
+                    <h1>Editar Documentos</h1>
+                </div>
 
-        <div>
-            <label for="tipo_documento">Tipo de Documento:</label>
-            <input type="text" value="<?php echo htmlspecialchars($tipo_documento); ?>" id="tipo_documento" name="tipo_documento" required>
+                <div class="input-group">
+                    <label for="tipo_documento">Tipo de Documento:</label>
+                    <input type="text" value="<?php echo htmlspecialchars($tipo_documento); ?>" id="tipo_documento"
+                        name="tipo_documento" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="descricao">Descrição:</label>
+                    <input type="text" value="<?php echo htmlspecialchars($descricao); ?>" id="descricao"
+                        name="descricao" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="data_geracao">Data de Geração:</label>
+                    <input type="date" value="<?php echo htmlspecialchars($data_geracao); ?>" id="data_geracao"
+                        name="data_geracao" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="data_emissao">Data de Emissão:</label>
+                    <input type="date" value="<?php echo htmlspecialchars($data_emissao); ?>" id="data_emissao"
+                        name="data_emissao" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="arquivo">Escolher Novo Arquivo (opcional):</label>
+                    <input type="file" id="arquivo" name="arquivo">
+                    <p>Arquivo Atual: <?php echo htmlspecialchars($arquivo); ?></p>
+                </div>
+
+                <div class="input-group">
+                    <label for="projeto_id">ID do Projeto:</label>
+                    <input type="number" value="<?php echo htmlspecialchars($projeto_id); ?>" id="projeto_id"
+                        name="projeto_id" required>
+                </div>
+
+                <input type="hidden" name="id" value="<?php echo $id; ?>">
+
+                <input type="submit" name="submit" value="Salvar" id="botao">
+            </form>
+
+            <div>
+                <a href="../listas/sistema-documentos.php">Voltar</a>
+            </div>
         </div>
-
-        <br>
-
-        <div>
-            <label for="descricao">Descrição:</label>
-            <input type="text" value="<?php echo htmlspecialchars($descricao); ?>" id="descricao" name="descricao" required>
-        </div>
-
-        <br>
-
-        <div>
-            <label for="data_geracao">Data de Geração:</label>
-            <input type="date" value="<?php echo htmlspecialchars($data_geracao); ?>" id="data_geracao" name="data_geracao" required>
-        </div>
-
-        <br>
-
-        <div>
-            <label for="data_emissao">Data de Emissão:</label>
-            <input type="date" value="<?php echo htmlspecialchars($data_emissao); ?>" id="data_emissao" name="data_emissao" required>
-        </div>
-
-        <br>
-
-        <div>
-            <label for="arquivo">Escolher Novo Arquivo (opcional):</label>
-            <input type="file" id="arquivo" name="arquivo">
-            <p>Arquivo Atual: <?php echo htmlspecialchars($arquivo); ?></p>
-        </div>
-
-        <br>
-
-        <div>
-            <label for="projeto_id">ID do Projeto:</label>
-            <input type="number" value="<?php echo htmlspecialchars($projeto_id); ?>" id="projeto_id" name="projeto_id" required>
-        </div>
-
-        <br>
-
-        <input type="hidden" name="id" value="<?php echo $id; ?>">
-
-        <input type="submit" name="update" id="submit" value="Salvar">
-    </form>
-
-    <div>
-        <a href="../listas/sistema-documentos.php">Voltar</a>
-    </div>
+    </section>
 </body>
 
 </html>

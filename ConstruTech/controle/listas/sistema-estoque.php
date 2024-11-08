@@ -12,9 +12,9 @@ if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == tr
 
 $logado = $_SESSION['usuario'];
 
-$sql_funcionario = "SELECT * FROM Funcionario ORDER BY id ASC";
+$sql_projeto = "SELECT * FROM Estoque ORDER BY id ASC";
 
-$result_funcionario = $conexao->query($sql_funcionario);
+$result_projeto = $conexao->query($sql_projeto);
 
 ?>
 <!DOCTYPE html>
@@ -23,7 +23,7 @@ $result_funcionario = $conexao->query($sql_funcionario);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema Funcionario</title>
+    <title>Sistema Projeto</title>
     <link rel="stylesheet" href="../../visao/css/styleListas.css">
 </head>
 
@@ -37,36 +37,30 @@ $result_funcionario = $conexao->query($sql_funcionario);
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Nome</th>
-                    <th scope="col">CPF</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Telefone</th>
-                    <th scope="col">Endereco</th>
-                    <th scope="col">Data de admissão</th>
-                    <th scope="col">Cargo</th>
-                    <th scope="col">Setor</th>
+                    <th scope="col">Produto</th>
+                    <th scope="col">Quantidade total</th>
+                    <th scope="col">Movimentação</th>
+                    <th scope="col">Projeto</th>
+                    <th scope="col">Financeiro</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
-                while ($user_data = mysqli_fetch_assoc($result_funcionario)) {
+                while ($user_data = mysqli_fetch_assoc($result_projeto)) {
                     echo "<tr>";
                         echo "<td>" . $user_data['id'] . "</td>";
-                        echo "<td>" . $user_data['nome'] . "</td>";
-                        echo "<td>" . $user_data['cpf'] . "</td>";
-                        echo "<td>" . $user_data['email'] . "</td>";
-                        echo "<td>" . $user_data['telefone'] . "</td>";
-                        echo "<td>" . $user_data['endereco'] . "</td>";
-                        echo "<td>" . $user_data['data_admissao'] . "</td>";
-                        echo "<td>" . $user_data['cargo'] . "</td>";
-                        echo "<td>" . $user_data['setor'] . "</td>";
+                        echo "<td>" . $user_data['produto'] . "</td>";
+                        echo "<td>" . $user_data['quantidade_total'] . "</td>";
+                        echo "<td>" . $user_data['tipo_movimentacao'] . "</td>";
+                        echo "<td>" . $user_data['projeto_id'] . "</td>";
+                        echo "<td>" . $user_data['financeiro_id'] . "</td>";
                         echo "<td>
-                            <a class='image' href='../update/edit-funcionario.php?id=" . $user_data['id'] . "'>
+                            <a class='image' href='../update/edit-estoque.php?id=" . $user_data['id'] . "'>
                                 <img src='../../visao/img/image-pencil.png' alt='Editar'>
                             </a>
                         </td>";
                             echo "<td>
-                            <a class='image' href='../delete/delete-funcionario.php?id=" . $user_data['id'] . "'>
+                            <a class='image' href='../delete/delete-estoque.php?id=" . $user_data['id'] . "'>
                                 <img src='../../visao/img/image-lixeira.png' alt='Deletar'>
                             </a>
                         </td>";
