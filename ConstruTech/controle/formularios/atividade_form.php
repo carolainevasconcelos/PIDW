@@ -44,17 +44,11 @@ if (isset($_POST['submit'])) {
                 <img src="../../visao/img/ferramentas.png" alt="logo" id="logo">
                 <p>ConstruTech</p>
             </div>
-            <ul>
-                <li><a href="">Atividade</a></li>
-                <li><a href="../../visao/paginas/pagCronograma.php">Cronograma</a></li>
-                <li><a href="../../visao/pagUsuarios-colab.php">Home</a></li>
-                <li><a href="../listas/sistema-estoque.php">Estoque</a></li>
-                <li><a href="../listas/sistema-equipamento.php">Equipamentos</a></li>
-            </ul>
             <div class="auth-profile">
                 <div class="profile">
                     <img src="../../visao/img/profile-icon.png" alt="User Profile" class="profile-icon">
                 </div>
+                <a href="../../visao/paginas/cadastro.php" class="logout">Voltar</a>
                 <a href="../sair.php" class="logout">Sair</a>
             </div>
         </nav>

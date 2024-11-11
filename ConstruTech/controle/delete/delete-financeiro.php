@@ -13,8 +13,11 @@ if (!empty($_GET['id'])) {
         $sqlDelete = "DELETE FROM financeiro  WHERE id=$id";
         
         $resultDelete = $conexao->query($sqlDelete);
+
+        header('Location: ../../visao/paginas/pagFinanceiro-adm.php');
+        exit;
     } else {
-        header('Location: sistema-financeiro.php');
+        header('Location: ../../visao/paginas/pagFinanceiro-adm.php');
     }
 }
 ?>

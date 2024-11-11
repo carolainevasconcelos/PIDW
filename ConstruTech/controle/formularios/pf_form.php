@@ -44,7 +44,7 @@
                 <img src="../../visao/img/ferramentas.png" alt="logo" id="logo">
                 <p>ConstruTech</p>
             </div>
-            <ul>
+            <!-- <ul>
                 <li><a href="paginas/pagClientes-adm.php">Clientes</a></li>
                 <li><a href="paginas/pagProjeto-adm.php">Projetos</a></li>
                 <li><a href="paginas/pagFuncionario.php">Funcionário</a></li>
@@ -53,7 +53,7 @@
                 <li><a href="paginas/pagFinanceiro-adm.php">Financeiro</a></li>
                 <li><a href="paginas/pagFornecedor-adm.php">Fornecedores</a></li>
                 <li><a href="paginas/cadastro.php">Cadastro</a></li>
-            </ul>
+            </ul> -->
             <div class="auth-profile">
                 <div class="profile">
                     <img src="../../visao/img/profile-icon.png" alt="User Profile" class="profile-icon">

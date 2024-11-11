@@ -13,8 +13,11 @@ if (!empty($_GET['id'])) {
         $sqlDelete = "DELETE FROM fornecedor  WHERE id=$id";
         
         $resultDelete = $conexao->query($sqlDelete);
+
+        header('Location: ../../visao/paginas/pagFornecedor-adm.php');
+        exit;
     } else {
-        header('Location: sistema-fornecedor.php');
+        header('Location: ../../visao/paginas/pagFornecedor-adm.php');
     }
 }
 ?>

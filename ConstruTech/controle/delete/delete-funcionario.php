@@ -14,8 +14,11 @@ if (!empty($_GET['id'])) {
         $sqlDelete = "DELETE FROM funcionario  WHERE id=$id";
         
         $resultDelete = $conexao->query($sqlDelete);
+
+        header('Location: ../../visao/paginas/pagFuncionario.php');
+        exit;
     } else {
-        header('Location: sistema-funcionario.php');
+        header('Location: ../../visao/paginas/pagFuncionario.php');
     }
 }
 ?>

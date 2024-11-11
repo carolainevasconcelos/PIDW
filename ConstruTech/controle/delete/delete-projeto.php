@@ -13,8 +13,10 @@ if (!empty($_GET['id'])) {
         $sqlDelete = "DELETE FROM projeto  WHERE id=$id";
         
         $resultDelete = $conexao->query($sqlDelete);
+        header('Location: ../../visao/paginas/pagProjeto-adm.php');
+        exit;
     } else {
-        header('Location: sistema-projeto.php');
+        header('Location: ../../visao/paginas/pagProjeto-adm.php');
     }
 }
 ?>

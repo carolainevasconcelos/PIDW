@@ -16,15 +16,15 @@
                 <p>ConstruTech</p>
             </div>
             <ul>
-                <li><a href="paginas/pagClientes-adm.php">Clientes</a></li>
-                <li><a href="paginas/pagProjeto-adm.php">Projetos</a></li>
-                <li><a href="paginas/pagFuncionario.php">Funcionário</a></li>
-                <li><a href="paginas/pagCronograma.php">Cronograma</a></li>
+                <li><a href="paginas/pagClientes-gestor.php">Clientes</a></li>
+                <li><a href="paginas/pagProjeto-gestor.php">Projetos</a></li>
+                <li><a href="paginas/pagFuncionario-gestor.php">Funcionário</a></li>
+                <li><a href="paginas/pagCronograma-gestor.php">Cronograma</a></li>
                 <li><a href="">Home</a></li>
-                <li><a href="paginas/cadastro.php">Cadastro</a></li>
-                <li><a href="paginas/pagDoc-adm.php">Documentos</a></li>
-                <li><a href="paginas/pagFinanceiro-adm.php">Financeiro</a></li>
-                <li><a href="paginas/pagFornecedor-adm.php">Fornecedores</a></li>
+                <li><a href="paginas/pagDoc-gestor.php">Documentos</a></li>
+                <li><a href="paginas/pagFinanceiro-gestor.php">Financeiro</a></li>
+                <li><a href="paginas/pagFornecedor-gestor.php">Fornecedores</a></li>
+                <li><a href="paginas/cadastro-gestor.php">Cadastro</a></li>
             </ul>
             <div class="auth-profile">
                 <div class="profile">

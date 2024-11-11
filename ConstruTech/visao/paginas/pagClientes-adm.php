@@ -23,6 +23,7 @@
                 <li><a href="pagDoc-adm.php">Documentos</a></li>
                 <li><a href="pagFinanceiro-adm.php">Financeiro</a></li>
                 <li><a href="pagFornecedor-adm.php">Fornecedores</a></li>
+                <li><a href="cadastro.php">Cadastro</a></li>
             </ul>
             <div class="auth-profile">
                 <div class="profile">

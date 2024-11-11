@@ -13,8 +13,11 @@ if (!empty($_GET['id'])) {
         $sqlDelete = "DELETE FROM estoque WHERE id=$id";
         
         $resultDelete = $conexao->query($sqlDelete);
+        
+        header('Location: ../listas/sistema-estoque.php');
+        exit;
     } else {
-        header('Location: sistema-estoque.php');
+        header('Location: ../listas/sistema-estoque.php');
     }
 }
 ?>

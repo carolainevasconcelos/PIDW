@@ -16,14 +16,15 @@
                 <p>ConstruTech</p>
             </div>
             <ul>
-                <li><a href="pagClientes-adm.php">Clientes</a></li>
-                <li><a href="pagProjeto-adm.php">Projetos</a></li>
-                <li><a href="pagFuncionario.php">Funcionario</a></li>
-                <li><a href="../pagUsuarios-adm.php">Home</a></li>
-                <li><a href="">Documentos</a></li>
-                <li><a href="pagFinanceiro-adm.php">Financeiro</a></li>
-                <li><a href="pagFornecedor-adm.php">Fornecedores</a></li>
-                <li><a href="cadastro.php">Cadastro</a></li>
+                <li><a href="pagClientes-gestor.php">Clientes</a></li>
+                <li><a href="pagProjeto-gestor.php">Projetos</a></li>
+                <li><a href="pagFuncionario-gestor.php">Funcionário</a></li>
+                <li><a href="pagCronograma-gestor.php">Cronograma</a></li>
+                <li><a href="../pagUsuarios-gestor.php">Home</a></li>
+                <li><a href="pagDoc-gestor.php">Documentos</a></li>
+                <li><a href="">Financeiro</a></li>
+                <li><a href="pagFornecedor-gestor.php">Fornecedores</a></li>
+                <li><a href="cadastro-gestor.php">Cadastro</a></li>
             </ul>
             <div class="auth-profile">
                 <div class="profile">
@@ -35,9 +36,9 @@
     </header>
 
     <main>
-        <?php
-        include_once('../../controle/conexao-bd.php');
-        include('../../controle/listas/sistema-documento.php');
+        <?php 
+            include_once('../../controle/conexao-bd.php');
+            include ('../../controle/listas/sistema-financeiro.php'); 
         ?>
     </main>
 

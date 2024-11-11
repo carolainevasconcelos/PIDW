@@ -13,6 +13,9 @@ if (!empty($_GET['id'])) {
         $sqlDelete = "DELETE FROM atividade  WHERE id=$id";
         
         $resultDelete = $conexao->query($sqlDelete);
+        
+        header('Location: ../../visao/paginas/pagCronograma.php');
+        exit;
     } else {
         header('Location: ../../visao/paginas/pagCronograma.php');
     }

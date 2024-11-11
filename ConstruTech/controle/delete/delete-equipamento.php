@@ -13,8 +13,11 @@ if (!empty($_GET['id'])) {
         $sqlDelete = "DELETE FROM equipamento  WHERE id=$id";
         
         $resultDelete = $conexao->query($sqlDelete);
+
+        header('Location: ../listas/sistema-equipamento.php');
+        exit;
     } else {
-        header('Location: sistema-equipamento.php');
+        header('Location: ../listas/sistema-equipamento.php');
     }
 }
 ?>
