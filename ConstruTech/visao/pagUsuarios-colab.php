@@ -16,10 +16,11 @@
                 <p>ConstruTech</p>
             </div>
             <ul>
-                <li><a href="paginas/pagProjeto.php">Projetos</a></li>
+                <li><a href="../controle/formularios/atividade_form.php">Atividades</a></li>
+                <li><a href="paginas/pagCronograma.php">Cronograma</a></li>
                 <li><a href="">Home</a></li>
-                <li><a href="paginas/pagFinanceiro.php">Financeiro</a></li>
-                <li><a href="">Atendimento</a></li>
+                <li><a href="../controle/listas/sistema-estoque.php">Estoque</a></li>
+                <li><a href="../controle/listas/sistema-equipamento.php">Equipamentos</a></li>
             </ul>
             <div class="auth-profile">
                 <div class="profile">

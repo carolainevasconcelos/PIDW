@@ -1,7 +1,7 @@
 <?php
 include_once('../conexao-bd.php');
 
-if (isset($_POST['update'])) {
+if (isset($_POST['submit'])) {
     $id = $_POST['id'];
     $nome = $_POST['nome'];
     $cpf = $_POST['cpf'];
@@ -23,8 +23,12 @@ if (isset($_POST['update'])) {
         setor='$setor' 
     WHERE id=$id";
 
-    $result = $conexao->query($sqlUpdate);
+if ($conexao->query($sqlUpdate) === TRUE) { 
+    echo "Atualização realizada com sucesso.";
+    header("Location: ../../visao/paginas/pagFuncionario.php"); 
+    exit();
 } else {
-    header("Location: ../listas/sistema-funcionario.php");
+    echo "Erro ao atualizar o cliente: " . $conexao->error;
+}
 }
 ?>

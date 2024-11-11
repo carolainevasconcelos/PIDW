@@ -45,23 +45,21 @@ if (isset($_POST['submit']) && !empty($_POST['usuario']) && !empty($_POST['senha
                 $_SESSION['senha'] = $senha;
 
                 if ($setor == 'administrativo') {
-                    header('Location: listas/sistema-fornecedor.php');
+                    header('Location: ../visao/pagUsuarios-adm.php');
                 } elseif ($setor == 'colaborativo') {
-                    header('Location: listas/sistema-projeto.php');
+                    header('Location: ../visao/pagUsuarios-colab.php');
                 } elseif ($setor == 'gestao') {
-                    header('Location: listas/sistema-cliente.php');
+                    header('Location: ../visao/pagUsuarios-gestor.php');
                 }
                 exit();
             } else {
                 echo "<script>alert('Senha incorreta');</script>";
             }
         } else {
-            // Se não encontrar em nenhuma das tabelas
             echo "<script>alert('Usuário não encontrado');</script>";
         }
     }
 } else {
-    // Se os campos não foram preenchidos
     header('Location: index.php');
 }
 ?>

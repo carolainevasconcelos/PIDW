@@ -34,14 +34,37 @@ if (isset($_POST['submit'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar Atividade</title>
     <link rel="stylesheet" href="../../visao/css/formCadastro.css">
+    <link rel="stylesheet" href="../../visao/css/style-pagUsuarios.css">
 </head>
 
 <body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="../../visao/img/ferramentas.png" alt="logo" id="logo">
+                <p>ConstruTech</p>
+            </div>
+            <ul>
+                <li><a href="">Atividade</a></li>
+                <li><a href="../../visao/paginas/pagCronograma.php">Cronograma</a></li>
+                <li><a href="../../visao/pagUsuarios-colab.php">Home</a></li>
+                <li><a href="../listas/sistema-estoque.php">Estoque</a></li>
+                <li><a href="../listas/sistema-equipamento.php">Equipamentos</a></li>
+            </ul>
+            <div class="auth-profile">
+                <div class="profile">
+                    <img src="../../visao/img/profile-icon.png" alt="User Profile" class="profile-icon">
+                </div>
+                <a href="../sair.php" class="logout">Sair</a>
+            </div>
+        </nav>
+    </header>
+
     <section class="section-atividade">
         <div class="form-container" id="div-atividade">
             <form action="" method="POST">
                 <div class="titulo">
-                    <img src="../../visao/img/ferramentas.png" alt="">
+                    <!-- <img src="../../visao/img/ferramentas.png" alt=""> -->
                     <h1>Cadastrar Atividade</h1>
                 </div>
 
@@ -50,7 +73,7 @@ if (isset($_POST['submit'])) {
                     <select id="funcionario_id" name="funcionario_id" required>
                         <option value="">Selecione</option>
                         <?php
-                        $resultado = mysqli_query($conexao, "SELECT id, nome FROM Funcionario");
+                        $resultado = mysqli_query($conexao, "SELECT id, nome FROM Funcionario WHERE setor = 'colaborativo'");
                         while ($funcionario = mysqli_fetch_assoc($resultado)) {
                             echo "<option value='{$funcionario['id']}'>{$funcionario['nome']}</option>";
                         }
@@ -108,6 +131,10 @@ if (isset($_POST['submit'])) {
             </form>
         </div>
     </section>
+
+    <footer>
+        <p>© ConstruTech - 2024</p>
+    </footer>
 </body>
 
 </html>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once('../conexao-bd.php');
+// include_once('../conexao-bd.php');
 
 if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == true)) {
 
@@ -28,15 +28,12 @@ $result_fornecedor = $conexao->query($sql_fornecedor);
 </head>
 
 <body>
-    <div class="sair">
-        <a href="../sair.php">Sair</a>
-    </div>
-    <h1>Acessou o sistema</h1>
+    <h1>Lista de Fornecedores</h1>
     <div>
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
+                    <th scope="col">ID</th>
                     <th scope="col">Nome</th>
                     <th scope="col">Nome Fantasia</th>
                     <th scope="col">CNPJ</th>
@@ -57,12 +54,12 @@ $result_fornecedor = $conexao->query($sql_fornecedor);
                     echo "<td>" . htmlspecialchars($user_data['telefone']) . "</td>";
                     echo "<td>" . htmlspecialchars($user_data['endereco']) . "</td>";
                     echo "<td>
-                        <a class='image' href='../update/edit-fornecedor.php?id=" . $user_data['id'] . "'>
+                        <a class='image' href='../../controle/update/edit-fornecedor.php?id=" . $user_data['id'] . "'>
                             <img src='../../visao/img/image-pencil.png' alt='Editar'>
                         </a>
                     </td>";
                         echo "<td>
-                        <a class='image' href='../delete/delete-fornecedor.php?id=" . $user_data['id'] . "'>
+                        <a class='image' href='../../controle/delete/delete-fornecedor.php?id=" . $user_data['id'] . "'>
                             <img src='../../visao/img/image-lixeira.png' alt='Deletar'>
                         </a>
                     </td>";

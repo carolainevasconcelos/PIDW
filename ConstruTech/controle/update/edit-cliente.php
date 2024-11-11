@@ -38,7 +38,7 @@ if (!empty($_GET['id'])) {
 <body>
     <section class="section-projeto">
         <div class="form-container" id="div-projeto">
-            <form action="saveEdit-cliente.php" method="POST">
+            <form action="saveEdit.php" method="POST">
                 <div class="titulo">
                     <img src="../../visao/img/ferramentas.png" alt="">
                     <h1>Editar Cliente</h1>

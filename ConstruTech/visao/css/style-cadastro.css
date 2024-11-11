@@ -1,0 +1,77 @@
+.cadastramento {
+    padding: 20px;
+    text-align: center;
+}
+
+.cadastramento h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.carousel-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.card-container {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 20px 0;
+    scrollbar-width: none; /* Remove a barra de rolagem em navegadores Firefox */
+}
+
+.card-container::-webkit-scrollbar {
+    display: none; /* Remove a barra de rolagem em navegadores Chrome, Safari */
+}
+
+.card {
+    background-color: #2b2b2b;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    width: 200px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.card a {
+    color: white;
+    text-decoration: none;
+}
+
+.carousel-container .nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.carousel-container .nav-button.left {
+    left: 10px;
+}
+
+.carousel-container .nav-button.right {
+    right: 10px;
+}

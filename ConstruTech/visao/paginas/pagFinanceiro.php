@@ -27,23 +27,24 @@ $result_projeto = $conexao->query($sql_projeto);
 
 <body>
     <header>
-        <div class="logo">
-            <img src="../img/ferramentas.png" alt="logo" id="logo">
-            <p>ConstruTech</p>
-        </div>
-
-        <ul>
-            <li><a href="pagProjeto.php">Projetos</a></li>
-            <li><a href="../pagUsuarios.php">Home</a></li>
-            <li><a href="">Financeiro</a></li>
-        </ul>
-
-        <div class="auth-profile">
-            <div class="profile">
-                <img src="../img/profile-icon.png" alt="User Profile" class="profile-icon">
+        <nav>
+            <div class="logo">
+                <img src="../img/ferramentas.png" alt="logo" id="logo">
+                <p>ConstruTech</p>
             </div>
-            <a href="../../controle/sair.php" class="logout">Sair</a>
-        </div>
+            <ul>
+                <li><a href="pagProjeto.php">Projetos</a></li>
+                <li><a href="../pagUsuarios-cliente.php">Home</a></li>
+                <li><a href="">Financeiro</a></li>
+                <li><a href="">Atendimento</a></li>
+            </ul>
+            <div class="auth-profile">
+                <div class="profile">
+                    <img src="../img/profile-icon.png" alt="User Profile" class="profile-icon">
+                </div>
+                <a href="../../controle/sair.php" class="logout">Sair</a>
+            </div>
+        </nav>
     </header>
 
     <div>
@@ -59,9 +60,9 @@ $result_projeto = $conexao->query($sql_projeto);
                 <?php
                 while ($user_data = mysqli_fetch_assoc($result_projeto)) {
                     echo "<tr>";
-                        echo "<td>" . $user_data['valor'] . "</td>";
-                        echo "<td>" . $user_data['descricao'] . "</td>";
-                        echo "<td>" . $user_data['data'] . "</td>";
+                    echo "<td>" . $user_data['valor'] . "</td>";
+                    echo "<td>" . $user_data['descricao'] . "</td>";
+                    echo "<td>" . $user_data['data'] . "</td>";
                     echo "</tr>";
                 }
                 ?>

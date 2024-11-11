@@ -1,7 +1,7 @@
 <?php
 include_once('../conexao-bd.php');
 
-if (isset($_POST['update'])) {
+if (isset($_POST['submit'])) {
     $id = $_POST['id'];
     $nome = $_POST['nome'];
     $nome_fantasia = $_POST['nome_fantasia'];
@@ -19,8 +19,12 @@ if (isset($_POST['update'])) {
         endereco='$endereco' 
     WHERE id=$id";
 
-    $result = $conexao->query($sqlUpdate);
-} else {
-    header("Location: ../listas/sistema-fornecedor.php");
+    if ($conexao->query($sqlUpdate) === TRUE) {
+        echo "Atualização realizada com sucesso.";
+        header("Location: ../../visao/paginas/pagFornecedor-adm.php");
+        exit();
+    } else {
+        echo "Erro ao atualizar o fornecedor: " . $conexao->error;
+    }
 }
 ?>

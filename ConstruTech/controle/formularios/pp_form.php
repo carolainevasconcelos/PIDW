@@ -38,10 +38,37 @@ if ($resultado) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar Funcionário</title>
     <link rel="stylesheet" href="../../visao/css/formCadastro.css">
+    <link rel="stylesheet" href="../../visao/css/style-pagUsuarios.css">
+    <link rel="stylesheet" href="../../visao/css/style-cadastro.css">
     <script src="../../visao/js/validarCampos.js" defer></script>
 </head>
 
 <body>
+<header>
+        <nav>
+            <div class="logo">
+                <img src="../../visao/img/ferramentas.png" alt="logo" id="logo">
+                <p>ConstruTech</p>
+            </div>
+            <ul>
+                <li><a href="paginas/pagClientes-adm.php">Clientes</a></li>
+                <li><a href="paginas/pagProjeto-adm.php">Projetos</a></li>
+                <li><a href="paginas/pagFuncionario.php">Funcionário</a></li>
+                <li><a href="">Home</a></li>
+                <li><a href="paginas/pagDoc-adm.php">Documentos</a></li>
+                <li><a href="paginas/pagFinanceiro-adm.php">Financeiro</a></li>
+                <li><a href="paginas/pagFornecedor-adm.php">Fornecedores</a></li>
+                <li><a href="paginas/cadastro.php">Cadastro</a></li>
+            </ul>
+            <div class="auth-profile">
+                <div class="profile">
+                    <img src="../../visao/img/profile-icon.png" alt="User Profile" class="profile-icon">
+                </div>
+                <a href="../../visao/paginas/cadastro.php" class="logout">Voltar</a>
+                <a href="../sair.php" class="logout">Sair</a>
+            </div>
+        </nav>
+    </header>
     <section class="section-pp">
         <div class="form-container" id="div-pp">
             <form action="" method="post">
@@ -99,6 +126,9 @@ if ($resultado) {
         </form>
         </div>
     </section>
+    <footer>
+        <p>© ConstruTech - 2024</p>
+    </footer>
 </body>
 
 </html>

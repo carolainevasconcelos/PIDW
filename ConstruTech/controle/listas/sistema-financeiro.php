@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once('../conexao-bd.php');
+// include_once('../conexao-bd.php');
 
 if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == true)) {
 
@@ -28,15 +28,12 @@ $result_financeiro = $conexao->query($sql_financeiro);
 </head>
 
 <body>
-    <div class="sair">
-        <a href="../sair.php">Sair</a>
-    </div>
-    <h1>Acessou o sistema</h1>
+    <h1>Informação Financeiras</h1>
     <div>
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
+                    <th scope="col">ID</th>
                     <th scope="col">Tipo de Transação</th>
                     <th scope="col">Valor</th>
                     <th scope="col">Descrição</th>
@@ -57,12 +54,12 @@ $result_financeiro = $conexao->query($sql_financeiro);
                         echo "<td>" . $user_data['projeto_id'] . "</td>";
                         echo "<td>" . $user_data['fornecedor_id'] . "</td>";
                         echo "<td>
-                            <a class='image' href='../update/edit-financeiro.php?id=" . $user_data['id'] . "'>
+                            <a class='image' href='../../controle/update/edit-financeiro.php?id=" . $user_data['id'] . "'>
                                 <img src='../../visao/img/image-pencil.png' alt='Editar'>
                             </a>
                         </td>";
                         echo "<td>
-                            <a class='image' href='../delete/delete-financeiro.php?id=" . $user_data['id'] . "'>
+                            <a class='image' href='../../controle/delete/delete-financeiro.php?id=" . $user_data['id'] . "'>
                                 <img src='../../visao/img/image-lixeira.png' alt='Deletar'>
                             </a>
                         </td>";

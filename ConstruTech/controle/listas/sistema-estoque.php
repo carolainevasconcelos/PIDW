@@ -25,12 +25,31 @@ $result_projeto = $conexao->query($sql_projeto);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema Projeto</title>
     <link rel="stylesheet" href="../../visao/css/styleListas.css">
+    <link rel="stylesheet" href="../../visao/css/style-pagUsuarios.css">
 </head>
 
 <body>
-    <div class="sair">
-        <a href="../sair.php">Sair</a>
-    </div>
+<header>
+        <nav>
+            <div class="logo">
+                <img src="../../visao/img/ferramentas.png" alt="logo" id="logo">
+                <p>ConstruTech</p>
+            </div>
+            <ul>
+                <li><a href="../formularios/atividade_form.php">Atividade</a></li>
+                <li><a href="../../visao/paginas/pagCronograma.php">Cronograma</a></li>
+                <li><a href="../../visao/pagUsuarios-colab.php">Home</a></li>
+                <li><a href="">Estoque</a></li>
+                <li><a href="sistema-equipamento.php">Equipamentos</a></li>
+            </ul>
+            <div class="auth-profile">
+                <div class="profile">
+                    <img src="../../visao/img/profile-icon.png" alt="User Profile" class="profile-icon">
+                </div>
+                <a href="../sair.php" class="logout">Sair</a>
+            </div>
+        </nav>
+    </header>
     <h1>Acessou o sistema</h1>
     <div>
         <table class="table">
@@ -70,5 +89,8 @@ $result_projeto = $conexao->query($sql_projeto);
             </tbody>
         </table>
     </div>
+    <footer>
+        <p>© ConstruTech - 2024</p>
+    </footer>
 </body>
 </html>

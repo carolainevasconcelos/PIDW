@@ -1,7 +1,7 @@
 <?php
 include_once('../conexao-bd.php');
 
-if (isset($_POST['update'])) {
+if (isset($_POST['submit'])) {
     $id = $_POST['id'];
     $tipo_documento = $_POST['tipo_documento']; 
     $descricao = $_POST['descricao']; 
@@ -35,14 +35,12 @@ if (isset($_POST['update'])) {
         projeto_id=" . ($projeto_id !== null ? "'$projeto_id'" : 'NULL') . " 
     WHERE id=$id";
 
-    if ($conexao->query($sqlUpdate) === TRUE) {
-        header("Location: ../listas/sistema-documento.php");
-        exit;
+    if ($conexao->query($sqlUpdate) === TRUE) { 
+        echo "Atualização realizada com sucesso.";
+        header("Location: ../../visao/paginas/pagDoc-adm.php"); 
+        exit();
     } else {
-        echo "Erro ao atualizar: " . $conexao->error; 
+        echo "Erro ao atualizar o documento: " . $conexao->error;
     }
-} else {
-    header("Location: ../listas/sistema-documento.php");
-    exit;
 }
 ?>

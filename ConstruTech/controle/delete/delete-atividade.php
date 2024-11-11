@@ -14,7 +14,7 @@ if (!empty($_GET['id'])) {
         
         $resultDelete = $conexao->query($sqlDelete);
     } else {
-        header('Location: sistema-atividade.php');
+        header('Location: ../../visao/paginas/pagCronograma.php');
     }
 }
 ?>

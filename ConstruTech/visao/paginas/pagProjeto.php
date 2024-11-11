@@ -22,30 +22,30 @@ $result_projeto = $conexao->query($sql_projeto);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../css/stylePaginas.css">
+    <link rel="stylesheet" href="../css/style-pagUsuarios.css">
+    <link rel="stylesheet" href="../css/styleListas.css">
 </head>
 
 <body>
     <header>
-        <div class="logo">
-            <img src="../img/ferramentas.png" alt="logo" id="logo">
-            <p>ConstruTech</p>
-        </div>
-
-        <ul>
-            <li><a href="">Documentos</a></li>
-            <li><a href="">Projetos</a></li>
-            <li><a href="../pagUsuarios-cliente.php">Home</a></li>
-            <li><a href="pagFinanceiro.php">Financeiro</a></li>
-            <li><a href="">Atendimento</a></li>
-        </ul>
-
-        <div class="auth-profile">
-            <div class="profile">
-                <img src="../img/profile-icon.png" alt="User Profile" class="profile-icon">
+        <nav>
+            <div class="logo">
+                <img src="../img/ferramentas.png" alt="logo" id="logo">
+                <p>ConstruTech</p>
             </div>
-            <a href="../../controle/sair.php" class="logout">Sair</a>
-        </div>
+            <ul>
+                <li><a href="">Projetos</a></li>
+                <li><a href="../pagUsuarios-cliente.php">Home</a></li>
+                <li><a href="pagFinanceiro.php">Financeiro</a></li>
+                <li><a href="">Atendimento</a></li>
+            </ul>
+            <div class="auth-profile">
+                <div class="profile">
+                    <img src="../img/profile-icon.png" alt="User Profile" class="profile-icon">
+                </div>
+                <a href="../../controle/sair.php" class="logout">Sair</a>
+            </div>
+        </nav>
     </header>
 
     <div>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once('../conexao-bd.php');
+// include_once('../conexao-bd.php');
 
 if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == true)) {
     unset($_SESSION['usuario']);
@@ -22,7 +22,7 @@ $result_projeto = $conexao->query($sql_projeto);
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -32,15 +32,12 @@ $result_projeto = $conexao->query($sql_projeto);
 </head>
 
 <body>
-    <div class="sair">
-        <a href="../sair.php">Sair</a>
-    </div>
-    <h1>Cronograma</h1>
+    <h1>Cronograma de Atividades</h1>
     <div>
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
+                    <th scope="col">ID</th>
                     <th scope="col">Funcionario</th>
                     <th scope="col">Nome</th>
                     <th scope="col">Descrição</th>

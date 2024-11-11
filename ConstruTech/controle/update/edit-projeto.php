@@ -20,7 +20,7 @@ if (!empty($_GET['id'])) {
             $cliente_id = $user_data['cliente_id'] ?? null;
         }
     } else {
-        header('Location: ../ listas/sistema-projeto.php');
+        header('Location: ../listas/sistema-projeto.php');
     }
 }
 ?>

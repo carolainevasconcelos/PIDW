@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once('../conexao-bd.php');
+// include_once('../conexao-bd.php');
 
 if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == true)) {
     unset($_SESSION['usuario']);
@@ -26,10 +26,7 @@ $result_documentos = $conexao->query($sql_documentos);
 </head>
 
 <body>
-    <div class="sair">
-        <a href="../sair.php">Sair</a>
-    </div>
-    <h1>Acessou o sistema</h1>
+    <h1>Documentos</h1>
     <div>
         <table class="table">
             <thead>
@@ -55,10 +52,10 @@ $result_documentos = $conexao->query($sql_documentos);
                     echo "<td>" . $user_data['arquivo'] . "</td>"; 
                     echo "<td>" . $user_data['projeto_id'] . "</td>"; 
                     echo "<td>
-                        <a class='image' href='../update/edit-documento.php?id=" . $user_data['id'] . "'>
+                        <a class='image' href='../../controle/update/edit-documento.php?id=" . $user_data['id'] . "'>
                             <img src='../../visao/img/image-pencil.png' alt='Editar'>
                         </a>
-                        <a class='image' href='../delete/delete-documento.php?id=" . $user_data['id'] . "'>
+                        <a class='image' href='../../controle/delete/delete-documento.php?id=" . $user_data['id'] . "'>
                             <img src='../../visao/img/image-lixeira.png' alt='Deletar'>
                         </a>
                     </td>";

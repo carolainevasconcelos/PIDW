@@ -1,7 +1,7 @@
 <?php
-include_once('../conexao-bd.php');
+include_once('../conexao-bd.php'); 
 
-if (isset($_POST['update'])) {
+if (isset($_POST['submit'])) {
     $id = $_POST['id'];
     $nome = $_POST['nome']; 
     $descricao = $_POST['descricao']; 
@@ -28,6 +28,6 @@ if (isset($_POST['update'])) {
         echo "Erro: Todos os campos obrigatórios devem ser preenchidos."; // fazer js
     }
 } else {
-    header("Location: ../listas/sistema-projeto.php");
+    header("Location: Location: ../../visao/paginas/pagProjeto-adm.php");
 }
 ?>

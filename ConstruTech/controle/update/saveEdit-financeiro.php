@@ -1,7 +1,7 @@
 <?php
-include_once('../conexao-bd.php');
+include_once('../conexao-bd.php'); 
 
-if (isset($_POST['update'])) {
+if (isset($_POST['submit'])) {
     $id = $_POST['id'];
     $transacao = $_POST['tipo_transacao'] ?? '';
     $valor = $_POST['valor'];
@@ -35,13 +35,13 @@ if (isset($_POST['update'])) {
 
         $result = $conexao->query($sqlUpdate);
 
-        if ($result) {
-            header("Location: ../listas/sistema-financeiro.php");
+        if ($conexao->query($sqlUpdate) === TRUE) { 
+            echo "Atualização realizada com sucesso.";
+            header("Location: ../../visao/paginas/pagFinanceiro-adm.php"); 
+            exit();
         } else {
-            echo "Erro ao atualizar o registro financeiro: " . $conexao->error;
+            echo "Erro ao atualizar o financeiro: " . $conexao->error;
         }
-    }
-} else {
-    header("Location: ../listas/sistema-financeiro.php");
+}
 }
 ?>
