@@ -31,7 +31,7 @@
                         <input type="password" name="senha" required>
                         <label for="">Senha</label>
                     </div>
-                    <a href="#" class="link">Esqueceu sua senha?</a>
+                    <a href="esqueceu.php" class="link">Esqueceu sua senha?</a>
                     <input type="submit" class="button" name="submit" value="Entrar">
                     <a href="../controle/definirSenha.php" class="link" id="create-password">&#9872; Crie uma senha</a>
                 </form>

@@ -19,7 +19,7 @@ $result_funcionario = $conexao->query($sql_funcionario);
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">

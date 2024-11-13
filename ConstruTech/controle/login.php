@@ -1,10 +1,7 @@
 <?php
 session_start();
 
-// print_r($_REQUEST);
-
 if (isset($_POST['submit']) && !empty($_POST['usuario']) && !empty($_POST['senha'])) {
-    // Acessa o banco
     include_once('conexao-bd.php');
 
     $usuario = $_POST['usuario'];
@@ -15,12 +12,10 @@ if (isset($_POST['submit']) && !empty($_POST['usuario']) && !empty($_POST['senha
     $result_cliente = $conexao->query($sql_cliente);
 
     if (mysqli_num_rows($result_cliente) > 0) {
-        // Se for um cliente
         $row = $result_cliente->fetch_assoc();
         $senha_armazenada = $row['senha'];
 
         if (password_verify($senha, $senha_armazenada)) {
-            // Cria sessão e redireciona para a página do cliente
             $_SESSION['usuario'] = $usuario;
             $_SESSION['senha'] = $senha;
             header('Location: ../visao/pagUsuarios-cliente.php');
@@ -34,13 +29,11 @@ if (isset($_POST['submit']) && !empty($_POST['usuario']) && !empty($_POST['senha
         $result_funcionario = $conexao->query($sql_funcionario);
 
         if (mysqli_num_rows($result_funcionario) > 0) {
-            // Se for um funcionário
             $row = $result_funcionario->fetch_assoc();
             $senha_armazenada = $row['senha'];
             $setor = $row['setor']; // Recupera o setor do funcionário
 
             if (password_verify($senha, $senha_armazenada)) {
-                // Cria sessão e redireciona para a página de acordo com o setor do funcionário
                 $_SESSION['usuario'] = $usuario;
                 $_SESSION['senha'] = $senha;
 
