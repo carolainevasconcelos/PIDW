@@ -6,6 +6,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página Usuários</title>
     <link rel="stylesheet" href="../css/style-pagUsuarios.css">
+    <style>
+        /* Dropdown de notificações */
+        .notificacoes-dropdown {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            background-color: #2c2c2c;
+            /* Fundo escuro */
+            width: 300px;
+            border: 1px solid #444;
+            /* Borda em tom escuro */
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            display: none;
+            /* Escondido por padrão */
+            z-index: 10;
+            max-height: 400px;
+            overflow-y: auto;
+            /* Permite rolar quando há muitas notificações */
+            color: #fff;
+        }
+
+        /* Lista das notificações */
+        .notificacoes-dropdown ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Cada notificação */
+        .notificacoes-dropdown ul li {
+            padding: 12px 15px;
+            border-bottom: 1px solid #444;
+            /* Separador em tom escuro */
+            font-size: 14px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        /* Última notificação sem borda */
+        .notificacoes-dropdown ul li:last-child {
+            border-bottom: none;
+        }
+
+        /* Notificação ao passar o mouse */
+        .notificacoes-dropdown ul li:hover {
+            background-color: #444;
+            /* Destaca com tom mais claro */
+            transform: scale(1.02);
+            /* Efeito leve de zoom */
+            cursor: pointer;
+        }
+
+        /* Notificação nova */
+        .notificacao-nova {
+            color: #ffd700;
+            /* Amarelo brilhante para destacar notificações não lidas */
+            font-weight: bold;
+        }
+
+        /* Título da lista de notificações (opcional) */
+        .notificacoes-titulo {
+            padding: 10px 15px;
+            background-color: #444;
+            /* Fundo mais claro */
+            color: #ffd700;
+            /* Amarelo para o título */
+            font-weight: bold;
+            text-align: center;
+            border-bottom: 1px solid #555;
+        }
+    </style>
 </head>
 
 <body>

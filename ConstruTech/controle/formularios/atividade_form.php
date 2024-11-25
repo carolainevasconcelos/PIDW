@@ -11,24 +11,48 @@ $projeto_id = $_POST['projeto_id'] ?? null;
 
 if (isset($_POST['submit'])) {
     if (!empty($nome) && !empty($descricao) && !empty($data_inicio) && !empty($statu) && !empty($funcionario_id) && !empty($projeto_id)) {
-        $query = "INSERT INTO Atividade (nome_atividade, descricao, data_inicio, data_termino, status, funcionario_id, projeto_id) 
-                  VALUES ('$nome', '$descricao', '$data_inicio', '$data_termino', '$statu', '$funcionario_id', '$projeto_id')";
-        $resultado = mysqli_query($conexao, $query);
+        
+        // Ajusta a data de término caso esteja vazia
+        $data_termino = !empty($data_termino) ? $data_termino : $data_inicio;
 
-        if ($resultado) {
-            $notificacao = "Nova atividade cadastrada: $nome";
-            $query_notificacao = "INSERT INTO Notificacoes (mensagem) VALUES ('$notificacao')";
-            mysqli_query($conexao, $query_notificacao);
+        // Verifica sobreposição de datas
+        $query_verificacao = "SELECT COUNT(*) AS total 
+                              FROM Atividade 
+                              WHERE funcionario_id = '$funcionario_id' 
+                              AND (
+                                  ('$data_inicio' BETWEEN data_inicio AND data_termino) OR
+                                  ('$data_termino' BETWEEN data_inicio AND data_termino) OR
+                                  (data_inicio BETWEEN '$data_inicio' AND '$data_termino') OR
+                                  (data_termino BETWEEN '$data_inicio' AND '$data_termino')
+                              )";
+        $resultado_verificacao = mysqli_query($conexao, $query_verificacao);
+        $row = mysqli_fetch_assoc($resultado_verificacao);
 
-            echo "<script>alert('Cadastro realizado com sucesso!');</script>";
+        if ($row['total'] > 0) {
+            echo "<script>alert('Este funcionário já possui uma atividade cadastrada que conflita com as datas selecionadas.');</script>";
         } else {
-            echo "<script>alert('Erro ao cadastrar: " . mysqli_error($conexao) . "');</script>";
+            // Insere a nova atividade no banco de dados
+            $query = "INSERT INTO Atividade (nome_atividade, descricao, data_inicio, data_termino, status, funcionario_id, projeto_id) 
+                      VALUES ('$nome', '$descricao', '$data_inicio', '$data_termino', '$statu', '$funcionario_id', '$projeto_id')";
+            $resultado = mysqli_query($conexao, $query);
+
+            if ($resultado) {
+                // Insere uma notificação
+                $notificacao = "Nova atividade cadastrada: $nome";
+                $query_notificacao = "INSERT INTO Notificacoes (mensagem) VALUES ('$notificacao')";
+                mysqli_query($conexao, $query_notificacao);
+
+                echo "<script>alert('Cadastro realizado com sucesso!');</script>";
+            } else {
+                echo "<script>alert('Erro ao cadastrar: " . mysqli_error($conexao) . "');</script>";
+            }
         }
     } else {
         echo "<script>alert('Por favor, preencha todos os campos obrigatórios.');</script>";
     }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
