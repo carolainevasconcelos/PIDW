@@ -34,7 +34,7 @@ $result_documentos = $conexao->query($sql_documentos);
                     <th scope="col">Data Geração</th>
                     <th scope="col">Data Emissão</th>
                     <th scope="col">Arquivo</th>
-                    <th scope="col">Projeto ID</th>
+                    <th scope="col">Projeto</th>
                 </tr>
             </thead>
             <tbody>

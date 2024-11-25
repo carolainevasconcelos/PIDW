@@ -52,7 +52,7 @@ if (isset($_POST['submit'])) {
 </head>
 
 <body>
-<header>
+    <header>
         <nav>
             <div class="logo">
                 <img src="../../visao/img/ferramentas.png" alt="logo" id="logo">
@@ -69,9 +69,6 @@ if (isset($_POST['submit'])) {
                 <li><a href="paginas/cadastro.php">Cadastro</a></li>
             </ul> -->
             <div class="auth-profile">
-                <div class="profile">
-                    <img src="../../visao/img/profile-icon.png" alt="User Profile" class="profile-icon">
-                </div>
                 <a href="../../visao/paginas/cadastro.php" class="logout">Voltar</a>
                 <a href="../sair.php" class="logout">Sair</a>
             </div>
@@ -84,76 +81,78 @@ if (isset($_POST['submit'])) {
                     <img src="../../visao/img/ferramentas.png" alt="">
                     <h2>Cadastro de Transação Financeira</h2>
                 </div>
-            
-                    <div class="input-group">
-                        <label for="tipo_transacao">Tipo de Transação:</label>
-                        <select id="tipo_transacao" name="tipo_transacao" required onchange="toggleFields()">
-                            <option value="">Selecione</option>
-                            <option value="receita">Receita</option>
-                            <option value="despesas">Despesa</option>
-                        </select>
-                    </div>
 
-                    <div class="input-group">
-                        <label for="valor">Valor:</label>
-                        <input type="number" id="valor" name="valor" step="0.01" required>
-                    </div>
+                <div class="input-group">
+                    <label for="tipo_transacao">Tipo de Transação:</label>
+                    <select id="tipo_transacao" name="tipo_transacao" required onchange="toggleFields()">
+                        <option value="">Selecione</option>
+                        <option value="receita">Receita</option>
+                        <option value="despesas">Despesa</option>
+                    </select>
+                </div>
 
-                    <div class="input-group">
-                        <label for="data">Data:</label>
-                        <input type="date" id="data" name="data" required>
-                    </div>
+                <div class="input-group">
+                    <label for="valor">Valor:</label>
+                    <input type="number" id="valor" name="valor" step="0.01" required>
+                </div>
 
-                    <div class="input-group">
-                        <label for="descricao">Descrição:</label>
-                        <textarea id="descricao" name="descricao" required></textarea>
-                    </div>
+                <div class="input-group">
+                    <label for="data">Data:</label>
+                    <input type="date" id="data" name="data" required>
+                </div>
 
-                    <div class="input-group" id="projeto_field" style="display: none;">
-                        <label for="projeto_id">Projeto:</label>
-                        <select id="projeto_id" name="projeto_id">
-                            <?php
-                            $resultado = mysqli_query($conexao, "SELECT id, nome FROM Projeto");
-                            while ($projeto = mysqli_fetch_assoc($resultado)) {
-                                echo "<option value='{$projeto['id']}'>{$projeto['nome']}</option>";
-                            }
-                            ?>
-                        </select>
-                    </div>
+                <div class="input-group">
+                    <label for="descricao">Descrição:</label>
+                    <textarea id="descricao" name="descricao" required></textarea>
+                </div>
 
-                    <div class="input-group" id="fornecedor_field" style="display: none;">
-                        <label for="fornecedor_id">Fornecedor:</label>
-                        <select id="fornecedor_id" name="fornecedor_id">
-                            <?php
-                            $resultado = mysqli_query($conexao, "SELECT id, nome FROM Fornecedor");
-                            while ($fornecedor = mysqli_fetch_assoc($resultado)) {
-                                echo "<option value='{$fornecedor['id']}'>{$fornecedor['nome']}</option>";
-                            }
-                            ?>
-                        </select>
-                    </div>
-
-                    <input type="submit" name="submit" value="Cadastrar" id="botao">
-                </form>
-
-                <script>
-                    function toggleFields() {
-                        const tipoTransacao = document.getElementById('tipo_transacao').value;
-                        const projetoField = document.getElementById('projeto_field');
-                        const fornecedorField = document.getElementById('fornecedor_field');
-
-                        if (tipoTransacao === 'receita') {
-                            projetoField.style.display = 'block';
-                            fornecedorField.style.display = 'none';
-                        } else if (tipoTransacao === 'despesas') {
-                            projetoField.style.display = 'none';
-                            fornecedorField.style.display = 'block';
-                        } else {
-                            projetoField.style.display = 'none';
-                            fornecedorField.style.display = 'none';
+                <div class="input-group" id="projeto_field" style="display: none;">
+                    <label for="projeto_id">Projeto:</label>
+                    <select id="projeto_id" name="projeto_id">
+                        <option value="">Selecione</option>
+                        <?php
+                        $resultado = mysqli_query($conexao, "SELECT id, nome FROM Projeto");
+                        while ($projeto = mysqli_fetch_assoc($resultado)) {
+                            echo "<option value='{$projeto['id']}'>{$projeto['nome']}</option>";
                         }
+                        ?>
+                    </select>
+                </div>
+
+                <div class="input-group" id="fornecedor_field" style="display: none;">
+                    <label for="fornecedor_id">Fornecedor:</label>
+                    <select id="fornecedor_id" name="fornecedor_id">
+                        <option value="">Selecione</option>
+                        <?php
+                        $resultado = mysqli_query($conexao, "SELECT id, nome FROM Fornecedor");
+                        while ($fornecedor = mysqli_fetch_assoc($resultado)) {
+                            echo "<option value='{$fornecedor['id']}'>{$fornecedor['nome']}</option>";
+                        }
+                        ?>
+                    </select>
+                </div>
+
+                <input type="submit" name="submit" value="Cadastrar" id="botao">
+            </form>
+
+            <script>
+                function toggleFields() {
+                    const tipoTransacao = document.getElementById('tipo_transacao').value;
+                    const projetoField = document.getElementById('projeto_field');
+                    const fornecedorField = document.getElementById('fornecedor_field');
+
+                    if (tipoTransacao === 'receita') {
+                        projetoField.style.display = 'block';
+                        fornecedorField.style.display = 'none';
+                    } else if (tipoTransacao === 'despesas') {
+                        projetoField.style.display = 'none';
+                        fornecedorField.style.display = 'block';
+                    } else {
+                        projetoField.style.display = 'none';
+                        fornecedorField.style.display = 'none';
                     }
-                </script>
+                }
+            </script>
         </div>
     </section>
     <footer>

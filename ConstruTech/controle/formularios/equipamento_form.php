@@ -46,9 +46,6 @@ if (isset($_POST['submit'])) {
             </div>
             
             <div class="auth-profile">
-                <div class="profile">
-                    <img src="../../visao/img/profile-icon.png" alt="User Profile" class="profile-icon">
-                </div>
                 <a href="../../visao/paginas/cadastroColab.php" class="logout">Voltar</a>
                 <a href="../sair.php" class="logout">Sair</a>
             </div>
@@ -91,12 +88,11 @@ if (isset($_POST['submit'])) {
                 </div>
 
                 <div class="input-group">
-                    <label for="funcionario_id">Funcionário:</label>
+                    <label for="funcionario_id">Funcionario:</label>
                     <select id="funcionario_id" name="funcionario_id" required>
                         <option value="">Selecione</option>
                         <?php
-                        include_once('../conexao-bd.php');
-                        $resultado = mysqli_query($conexao, "SELECT id, nome FROM funcionario");
+                        $resultado = mysqli_query($conexao, "SELECT id, nome FROM Funcionario WHERE setor = 'colaborativo'");
                         while ($funcionario = mysqli_fetch_assoc($resultado)) {
                             echo "<option value='{$funcionario['id']}'>{$funcionario['nome']}</option>";
                         }

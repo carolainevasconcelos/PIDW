@@ -70,7 +70,7 @@ $result_equipamento = $conexao->query($sql_equipamento);
                     echo "<td>" . htmlspecialchars($user_data['descricao']) . "</td>";
                     echo "<td>" . htmlspecialchars($user_data['quantidade']) . "</td>";
                     echo "<td>" . htmlspecialchars($user_data['projeto_id']) . "</td>";
-                    echo "<td>" . htmlspecialchars($user_data['projeto_id']) . "</td>";
+                    echo "<td>" . htmlspecialchars($user_data['funcionario_id']) . "</td>";
                     echo "<td>" . htmlspecialchars($user_data['fornecedor_id']) . "</td>";
                     echo "<td>
                         <a class='image' href='../update/edit-equipamento.php?id=" . $user_data['id'] . "'>

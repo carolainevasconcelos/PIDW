@@ -1,11 +1,11 @@
 <?php
 include_once('../conexao-bd.php');
 
+// Inicializa variáveis
 $tipo_documento = '';
 $descricao = '';
 $data_geracao = '';
 $data_emissao = '';
-$arquivo = '';
 $projeto_id = null;
 
 if (isset($_POST['submit'])) {
@@ -13,16 +13,48 @@ if (isset($_POST['submit'])) {
     $descricao = $_POST['descricao'];
     $data_geracao = $_POST['data_geracao'];
     $data_emissao = $_POST['data_emissao'];
-    $arquivo = $_POST['arquivo'];
     $projeto_id = $_POST['projeto_id'] ?? null;
 
-    // Corrigido para usar apenas a consulta de inserção
-    $resultado = mysqli_query($conexao, "INSERT INTO Documentos (tipo_documento, descricao, data_geracao, data_emissao, arquivo, projeto_id) VALUES ('$tipo_documento', '$descricao', '$data_geracao', '$data_emissao', '$arquivo', '$projeto_id')");
+    // Diretório para salvar os arquivos
+    $diretorio_destino = '../../uploads/';
 
-    if ($resultado) {
-        echo "<script>alert('Enviado com sucesso!');</script>";
+    // Verifica se o diretório existe, se não, cria
+    if (!is_dir($diretorio_destino)) {
+        mkdir($diretorio_destino, 0777, true);
+    }
+
+    // Verifica se um arquivo foi enviado
+    if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) {
+        $nome_arquivo_original = $_FILES['arquivo']['name'];
+        $extensao = strtolower(pathinfo($nome_arquivo_original, PATHINFO_EXTENSION));
+
+        // Permite apenas arquivos com extensões específicas
+        $extensoes_permitidas = ['pdf', 'docx', 'jpg', 'png'];
+        if (!in_array($extensao, $extensoes_permitidas)) {
+            die('Formato de arquivo não permitido.');
+        }
+
+        // Gera um nome único para evitar sobrescrita
+        $nome_arquivo = uniqid() . '_' . $nome_arquivo_original;
+        $caminho_arquivo = $diretorio_destino . $nome_arquivo;
+
+        // Move o arquivo para o diretório de destino
+        if (move_uploaded_file($_FILES['arquivo']['tmp_name'], $caminho_arquivo)) {
+            // Insere os dados no banco
+            $query = "INSERT INTO Documentos (tipo_documento, descricao, data_geracao, data_emissao, arquivo, projeto_id) 
+                      VALUES ('$tipo_documento', '$descricao', '$data_geracao', '$data_emissao', '$nome_arquivo', '$projeto_id')";
+            $resultado = mysqli_query($conexao, $query);
+
+            if ($resultado) {
+                echo "<script>alert('Documento cadastrado com sucesso!');</script>";
+            } else {
+                echo "<script>alert('Erro ao cadastrar: " . mysqli_error($conexao) . "');</script>";
+            }
+        } else {
+            echo "<script>alert('Erro ao mover o arquivo para o diretório de destino.');</script>";
+        }
     } else {
-        echo "<script>alert('Erro ao cadastrar: " . mysqli_error($conexao) . "');</script>";
+        echo "<script>alert('Erro no upload do arquivo. Verifique se ele foi selecionado.');</script>";
     }
 }
 ?>
@@ -32,7 +64,7 @@ if (isset($_POST['submit'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastrar</title>
+    <title>Cadastrar Documento</title>
     <link rel="stylesheet" href="../../visao/css/formCadastro.css">
     <link rel="stylesheet" href="../../visao/css/style-pagUsuarios.css">
     <link rel="stylesheet" href="../../visao/css/style-cadastro.css">
@@ -40,26 +72,13 @@ if (isset($_POST['submit'])) {
 </head>
 
 <body>
-<header>
+    <header>
         <nav>
             <div class="logo">
                 <img src="../../visao/img/ferramentas.png" alt="logo" id="logo">
                 <p>ConstruTech</p>
             </div>
-            <!-- <ul>
-                <li><a href="paginas/pagClientes-adm.php">Clientes</a></li>
-                <li><a href="paginas/pagProjeto-adm.php">Projetos</a></li>
-                <li><a href="paginas/pagFuncionario.php">Funcionário</a></li>
-                <li><a href="">Home</a></li>
-                <li><a href="paginas/pagDoc-adm.php">Documentos</a></li>
-                <li><a href="paginas/pagFinanceiro-adm.php">Financeiro</a></li>
-                <li><a href="paginas/pagFornecedor-adm.php">Fornecedores</a></li>
-                <li><a href="paginas/cadastro.php">Cadastro</a></li>
-            </ul> -->
             <div class="auth-profile">
-                <div class="profile">
-                    <img src="../../visao/img/profile-icon.png" alt="User Profile" class="profile-icon">
-                </div>
                 <a href="../../visao/paginas/cadastro.php" class="logout">Voltar</a>
                 <a href="../sair.php" class="logout">Sair</a>
             </div>
@@ -70,7 +89,7 @@ if (isset($_POST['submit'])) {
             <form action="" method="POST" enctype="multipart/form-data">
                 <div class="titulo">
                     <img src="../../visao/img/ferramentas.png" alt="">
-                    <h1>Documentos</h1>
+                    <h1>Cadastro de Documentos</h1>
                 </div>
 
                 <div class="input-group">
@@ -99,8 +118,9 @@ if (isset($_POST['submit'])) {
                 </div>
 
                 <div class="input-group">
-                    <label for="projeto_id">ID do Projeto:</label>
+                    <label for="projeto_id">Projeto:</label>
                     <select id="projeto_id" name="projeto_id" required>
+                        <option value="">Selecione</option>
                         <?php
                         $resultado = mysqli_query($conexao, "SELECT id, nome FROM projeto");
                         while ($projeto = mysqli_fetch_assoc($resultado)) {

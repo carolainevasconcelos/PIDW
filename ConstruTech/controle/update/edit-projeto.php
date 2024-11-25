@@ -71,6 +71,20 @@ if (!empty($_GET['id'])) {
                     <input type="text" value="<?php echo htmlspecialchars($statu); ?>" id="statu" name="statu">
                 </div>
 
+                <div class="input-group">
+                    <label for="cliente_id">Cliente:</label>
+                    <select id="cliente_id" name="cliente_id" required>
+                        <?php
+                        $resultado = mysqli_query($conexao, "SELECT id, nome FROM Cliente");
+                        while ($cliente = mysqli_fetch_assoc($resultado)) {
+                            $selected = ($cliente['id'] == $cliente_id) ? 'selected' : '';
+                            echo "<option value='{$cliente['id']}' $selected>{$cliente['nome']}</option>";
+                        }
+                        ?>
+                    </select>
+                </div>
+
+
                 <!-- Campo oculto para o ID do projeto -->
                 <input type="hidden" name="id" value="<?php echo $id; ?>">
 

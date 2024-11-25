@@ -5,7 +5,6 @@ if (!empty($_GET['id'])) {
     $id = $_GET['id'];
 
     $sqlSelect = "SELECT * FROM Documentos WHERE id=$id";
-
     $result_documentos = $conexao->query($sqlSelect);
 
     if ($result_documentos->num_rows > 0) {
@@ -19,6 +18,7 @@ if (!empty($_GET['id'])) {
         }
     } else {
         header('Location: ../listas/sistema-documentos.php');
+        exit;
     }
 }
 ?>
@@ -43,26 +43,22 @@ if (!empty($_GET['id'])) {
 
                 <div class="input-group">
                     <label for="tipo_documento">Tipo de Documento:</label>
-                    <input type="text" value="<?php echo htmlspecialchars($tipo_documento); ?>" id="tipo_documento"
-                        name="tipo_documento" required>
+                    <input type="text" value="<?php echo htmlspecialchars($tipo_documento); ?>" id="tipo_documento" name="tipo_documento" required>
                 </div>
 
                 <div class="input-group">
                     <label for="descricao">Descrição:</label>
-                    <input type="text" value="<?php echo htmlspecialchars($descricao); ?>" id="descricao"
-                        name="descricao" required>
+                    <input type="text" value="<?php echo htmlspecialchars($descricao); ?>" id="descricao" name="descricao" required>
                 </div>
 
                 <div class="input-group">
                     <label for="data_geracao">Data de Geração:</label>
-                    <input type="date" value="<?php echo htmlspecialchars($data_geracao); ?>" id="data_geracao"
-                        name="data_geracao" required>
+                    <input type="date" value="<?php echo htmlspecialchars($data_geracao); ?>" id="data_geracao" name="data_geracao" required>
                 </div>
 
                 <div class="input-group">
                     <label for="data_emissao">Data de Emissão:</label>
-                    <input type="date" value="<?php echo htmlspecialchars($data_emissao); ?>" id="data_emissao"
-                        name="data_emissao" required>
+                    <input type="date" value="<?php echo htmlspecialchars($data_emissao); ?>" id="data_emissao" name="data_emissao" required>
                 </div>
 
                 <div class="input-group">
@@ -72,19 +68,24 @@ if (!empty($_GET['id'])) {
                 </div>
 
                 <div class="input-group">
-                    <label for="projeto_id">ID do Projeto:</label>
-                    <input type="number" value="<?php echo htmlspecialchars($projeto_id); ?>" id="projeto_id"
-                        name="projeto_id" required>
+                    <label for="projeto_id">Projeto:</label>
+                    <select id="projeto_id" name="projeto_id" required>
+                        <option value="">Selecione</option>
+                        <?php
+                        // Consulta os projetos disponíveis
+                        $resultado = mysqli_query($conexao, "SELECT id, nome FROM projeto");
+                        while ($projeto = mysqli_fetch_assoc($resultado)) {
+                            $selected = ($projeto_id == $projeto['id']) ? 'selected' : '';
+                            echo "<option value='{$projeto['id']}' $selected>{$projeto['nome']}</option>";
+                        }
+                        ?>
+                    </select>
                 </div>
 
-                <input type="hidden" name="id" value="<?php echo $id; ?>">
+                <input type="hidden" name="id" value="<?php echo htmlspecialchars($id); ?>">
 
                 <input type="submit" name="submit" value="Salvar" id="botao">
             </form>
-
-            <!-- <div>
-                <a href="../listas/sistema-documentos.php">Voltar</a>
-            </div> -->
         </div>
     </section>
 </body>

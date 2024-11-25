@@ -52,12 +52,12 @@ $result_projeto = $conexao->query($sql_projeto);
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
+                    <th scope="col">ID</th>
                     <th scope="col">Produto</th>
                     <th scope="col">Quantidade total</th>
                     <th scope="col">Movimentação</th>
+                    <th scope="col">Data da movimentação</th>
                     <th scope="col">Projeto</th>
-                    <th scope="col">Financeiro</th>
                 </tr>
             </thead>
             <tbody>
@@ -68,8 +68,8 @@ $result_projeto = $conexao->query($sql_projeto);
                     echo "<td>" . $user_data['produto'] . "</td>";
                     echo "<td>" . $user_data['quantidade_total'] . "</td>";
                     echo "<td>" . $user_data['tipo_movimentacao'] . "</td>";
+                    echo "<td>" . $user_data['data_movimentacao'] . "</td>";
                     echo "<td>" . $user_data['projeto_id'] . "</td>";
-                    echo "<td>" . $user_data['financeiro_id'] . "</td>";
                     echo "<td>
                             <a class='image' href='../update/edit-estoque.php?id=" . $user_data['id'] . "'>
                                 <img src='../../visao/img/image-pencil.png' alt='Editar'>

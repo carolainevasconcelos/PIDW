@@ -61,9 +61,6 @@ if ($resultado) {
                 <li><a href="paginas/cadastro.php">Cadastro</a></li>
             </ul> -->
             <div class="auth-profile">
-                <div class="profile">
-                    <img src="../../visao/img/profile-icon.png" alt="User Profile" class="profile-icon">
-                </div>
                 <a href="../../visao/paginas/cadastro.php" class="logout">Voltar</a>
                 <a href="../sair.php" class="logout">Sair</a>
             </div>

@@ -37,7 +37,7 @@ $result_projeto = $conexao->query($sql_projeto);
             <thead>
                 <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">ID Cliente</th>
+                    <th scope="col">Cliente</th>
                     <th scope="col">Nome do Projeto</th>
                     <th scope="col">Descrição</th>
                     <th scope="col">Data de inicio</th>

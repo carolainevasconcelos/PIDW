@@ -4,48 +4,25 @@ if (!empty($_GET['id'])) {
 
     $id = $_GET['id'];
 
-    $sqlSelect = "SELECT * FROM Financeiro WHERE id=$id";
-
+    // Corrigido: A consulta SELECT foi adaptada para a sintaxe padrão
+    $sqlSelect = "SELECT * FROM Financeiro WHERE id = $id";
     $result_financeiro = $conexao->query($sqlSelect);
 
     if ($result_financeiro->num_rows > 0) {
-        while ($user_data = mysqli_fetch_assoc($result_financeiro)) {
-            $transacao = $user_data['tipo_transacao'] ?? '';
-            $valor = $user_data['valor'];
-            $data = $user_data['data'];
-            $descricao = $user_data['descricao'];
-            $projeto_id = $user_data['projeto_id'] ?? null;
-            $fornecedor_id = $user_data['fornecedor_id'] ?? null;
-        }
+        $user_data = mysqli_fetch_assoc($result_financeiro);
+        $transacao = $user_data['tipo_transacao'] ?? ''; // Corrigido para garantir que o valor está sendo capturado
+        $valor = $user_data['valor'];
+        $data = $user_data['data'];
+        $descricao = $user_data['descricao'];
+        $projeto_id = $user_data['projeto_id'] ?? null;
+        $fornecedor_id = $user_data['fornecedor_id'] ?? null;
     } else {
         header('Location: ../listas/sistema-financeiro.php');
+        exit;
     }
 }
 ?>
-<?php
-if (!empty($_GET['id'])) {
-    include_once('../conexao-bd.php');
 
-    $id = $_GET['id'];
-
-    $sqlSelect = "SELECT * FROM Financeiro WHERE id=$id";
-
-    $result_financeiro = $conexao->query($sqlSelect);
-
-    if ($result_financeiro->num_rows > 0) {
-        while ($user_data = mysqli_fetch_assoc($result_financeiro)) {
-            $transacao = $user_data['tipo_transacao'] ?? '';
-            $valor = $user_data['valor'];
-            $data = $user_data['data'];
-            $descricao = $user_data['descricao'];
-            $projeto_id = $user_data['projeto_id'] ?? null;
-            $fornecedor_id = $user_data['fornecedor_id'] ?? null;
-        }
-    } else {
-        header('Location: ../listas/sistema-financeiro.php');
-    }
-}
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -68,23 +45,19 @@ if (!empty($_GET['id'])) {
                 <div class="input-group">
                     <label for="tipo_transacao">Tipo de Transação:</label>
                     <select id="tipo_transacao" name="tipo_transacao" required onchange="toggleFields()">
-                        <option value="receita" <?php echo ($transacao === 'receita') ? 'selected' : ''; ?>>Receita
-                        </option>
-                        <option value="despesa" <?php echo ($transacao === 'despesa') ? 'selected' : ''; ?>>Despesa
-                        </option>
+                        <option value="receita" <?php echo ($transacao === 'receita') ? 'selected' : ''; ?>>Receita</option>
+                        <option value="despesa" <?php echo ($transacao === 'despesa') ? 'selected' : ''; ?>>Despesa</option>
                     </select>
                 </div>
 
                 <div class="input-group">
                     <label for="valor">Valor:</label>
-                    <input type="number" id="valor" name="valor" step="0.01"
-                        value="<?php echo htmlspecialchars($valor); ?>" required>
+                    <input type="number" id="valor" name="valor" step="0.01" value="<?php echo htmlspecialchars($valor); ?>" required>
                 </div>
 
                 <div class="input-group">
                     <label for="descricao">Descrição:</label>
-                    <input type="text" value="<?php echo htmlspecialchars($descricao); ?>" id="descricao"
-                        name="descricao" required>
+                    <input type="text" value="<?php echo htmlspecialchars($descricao); ?>" id="descricao" name="descricao" required>
                 </div>
 
                 <div class="input-group">
@@ -107,8 +80,7 @@ if (!empty($_GET['id'])) {
                     </div>
                 </div>
 
-                <div id="fornecedor_field"
-                    style="display: <?php echo ($transacao === 'despesa') ? 'block' : 'none'; ?>;">
+                <div id="fornecedor_field" style="display: <?php echo ($transacao === 'despesa') ? 'block' : 'none'; ?>;">
                     <div class="input-group">
                         <label for="fornecedor_id">Fornecedor:</label>
                         <select id="fornecedor_id" name="fornecedor_id">
@@ -127,10 +99,6 @@ if (!empty($_GET['id'])) {
 
                 <input type="submit" name="submit" value="Salvar" id="botao">
             </form>
-
-            <!-- <div>
-                <a href="../listas/sistema-financeiro.php">Voltar</a>
-            </div> -->
 
             <script>
                 function toggleFields() {

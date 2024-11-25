@@ -73,9 +73,6 @@ if (isset($_POST['submit'])) {
                 <p>ConstruTech</p>
             </div>
             <div class="auth-profile">
-                <div class="profile">
-                    <img src="../../visao/img/profile-icon.png" alt="User Profile" class="profile-icon">
-                </div>
                 <a href="../../visao/paginas/cadastroColab.php" class="logout">Voltar</a>
                 <a href="../sair.php" class="logout">Sair</a>
             </div>

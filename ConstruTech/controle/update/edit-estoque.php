@@ -15,7 +15,6 @@ if (!empty($_GET['id'])) {
             $movimentacao = $user_data['tipo_movimentacao'];
             $data = $user_data['data_movimentacao'];
             $projeto_id = $user_data['projeto_id'];
-            $financeiro_id = $user_data['financeiro_id'];
         }
     } else {
         header('Location: ../listas/sistema-estoque.php');
@@ -42,37 +41,42 @@ if (!empty($_GET['id'])) {
                 </div>
                 <div class="input-group">
                     <label for="produto">Nome do Produto:</label>
-                    <input type="text" id="produto" name="produto" value="<?php echo htmlspecialchars($produto); ?>"
-                        required>
+                    <input type="text" id="produto" name="produto" value="<?php echo htmlspecialchars($produto); ?>" required>
                 </div>
 
                 <div class="input-group">
                     <label for="quantidade_total">Quantidade Total:</label>
-                    <input type="number" id="quantidade_total" name="quantidade_total"
-                        value="<?php echo htmlspecialchars($qtd); ?>" required>
+                    <input type="number" id="quantidade_total" name="quantidade_total" value="<?php echo htmlspecialchars($qtd); ?>" required>
                 </div>
 
                 <div class="input-group">
                     <label for="tipo_movimentacao">Tipo de Movimentação:</label>
-                    <input type="text" id="tipo_movimentacao" name="tipo_movimentacao"
-                        value="<?php echo htmlspecialchars($movimentacao); ?>" required>
+                    <input type="text" id="tipo_movimentacao" name="tipo_movimentacao" value="<?php echo htmlspecialchars($movimentacao); ?>" required>
                 </div>
 
                 <div class="input-group">
                     <label for="data_movimentacao">Data de Movimentação:</label>
-                    <input type="date" id="data_movimentacao" name="data_movimentacao"
-                        value="<?php echo htmlspecialchars($data); ?>" required>
+                    <input type="date" id="data_movimentacao" name="data_movimentacao" value="<?php echo htmlspecialchars($data); ?>" required>
                 </div>
 
-                <!-- Campo oculto para o ID do item no estoque -->
+                <div class="input-group">
+                    <label for="projeto_id">Projeto:</label>
+                    <select name="projeto_id" id="projeto_id" required>
+                        <option value="">Selecione</option>
+                        <?php
+                        $resultado = mysqli_query($conexao, "SELECT id, nome FROM Projeto");
+                        while ($projeto = mysqli_fetch_assoc($resultado)) {
+                            $selected = ($projeto['id'] == $projeto_id) ? 'selected' : '';
+                            echo "<option value='{$projeto['id']}' {$selected}>{$projeto['nome']}</option>";
+                        }
+                        ?>
+                    </select>
+                </div>
+
                 <input type="hidden" name="id" value="<?php echo htmlspecialchars($id); ?>">
 
                 <input type="submit" name="update" value="Salvar" id="botao">
-                </form>
-
-            <!-- <div>
-                <a href="../listas/sistema-estoque.php">Voltar</a>
-            </div> -->
+            </form>
         </div>
     </section>
 </body>

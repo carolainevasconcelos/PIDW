@@ -79,7 +79,7 @@ if (!empty($_GET['id'])) {
                 <!-- Campo oculto para o ID da atividade -->
                 <input type="hidden" name="id" value="<?php echo htmlspecialchars($id); ?>">
 
-                <input type="submit" name="submit" value="Salvar" id="botao">
+                <input type="submit" name="update" value="Salvar" id="botao">
             </form>
 
             <!-- <div>
