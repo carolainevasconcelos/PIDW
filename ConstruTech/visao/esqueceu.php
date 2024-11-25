@@ -16,14 +16,15 @@
                     <img src="../visao/img/ferramentas.png" alt="">
                     <h1>Esqueceu a Senha</h1>
                 </div>
+                
                 <div class="inputbox">
-                    <label for="email">Email</label>
                     <input type="email" id="email" name="email" required>
-
+                    <label for="email">Email</label>
                 </div>
+                
                 <div class="inputbox">
-                    <label for="nova_senha">Nova Senha</label>
                     <input type="password" id="nova_senha" name="nova_senha" required>
+                    <label for="nova_senha">Nova Senha</label>
                 </div>
 
                 <div class="button-container">
@@ -33,6 +34,7 @@
             </form>
         </div>
     </section>
+
     <script>
         document.getElementById("voltarBotao").addEventListener("click", function () {
             window.location.href = "loginPag.php";

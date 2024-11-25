@@ -17,14 +17,12 @@ body {
     flex-direction: column;
     min-height: 100vh;
     background-color: #131313;
-    background-image: url('/mnt/data/fundo.jpg');
-    /* Caminho da imagem de fundo */
     background-size: cover;
     filter: brightness(1.1) contrast(1.2);
     position: relative;
+    margin-bottom: 60px; /* Margem para o footer não sobrepor o conteúdo */
 }
 
-/* Adicionando elementos diagonais */
 .diagonal-bg {
     position: absolute;
     top: 0;
@@ -54,8 +52,6 @@ body {
     top: 30%;
     left: -50%;
 }
-
-/* Fim dos elementos diagonais */
 
 header {
     background-color: #333;
@@ -113,6 +109,7 @@ nav ul li a {
     display: flex;
     align-items: center;
     margin-right: 10px;
+    position: relative; /* Necessário para o dropdown */
 }
 
 .profile-icon {
@@ -120,6 +117,39 @@ nav ul li a {
     height: 35px;
     margin-right: 10px;
     border-radius: 50%;
+    cursor: pointer; /* Indica que é clicável */
+}
+
+.notificacoes-dropdown {
+    position: absolute;
+    top: 40px; /* Ajuste a posição conforme necessário */
+    right: 0;
+    background-color: #333;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    width: 250px;
+    display: none; /* Inicialmente escondido */
+    z-index: 1000;
+}
+
+.notificacoes-dropdown ul {
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+}
+
+.notificacoes-dropdown ul li {
+    padding: 8px;
+    border-bottom: 1px solid #444;
+    color: #fff;
+}
+
+.notificacoes-dropdown ul li:last-child {
+    border-bottom: none;
+}
+
+.notificacoes-dropdown ul li:hover {
+    background-color: #444;
 }
 
 .logout {
@@ -133,7 +163,7 @@ nav ul li a {
 }
 
 .paragraph {
-    flex: 1;
+    flex-grow: 1;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -165,7 +195,6 @@ footer {
     background-color: #333;
     font-size: 14px;
     color: #ffc904;
-    position: relative;
-    bottom: 0;
+    margin-top: auto; /* Garante que o footer fique sempre no final */
     width: 100%;
 }

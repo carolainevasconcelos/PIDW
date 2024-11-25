@@ -23,6 +23,7 @@ h1 {
 }
 
 .table th, .table td {
+    text-align: center;
     padding: 10px;
     border: 1px solid #333;
     text-align: left;
@@ -40,6 +41,25 @@ h1 {
 
 .table tbody tr:hover {
     background-color: #444;
+}
+
+#downloadArquivo {
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    color: #000000; 
+    background-color: #ffd900; 
+    padding: 8px 15px; 
+    border-radius: 8px; 
+    font-size: 14px; 
+    font-weight: bold; 
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; 
+}
+
+#downloadArquivo::before {
+    content: '⬇ ';
+    margin-right: 5px; 
+    font-size: 16px; 
 }
 
 .image img {

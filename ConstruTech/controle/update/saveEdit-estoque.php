@@ -8,22 +8,36 @@ if (isset($_POST['update'])) {
     $movimentacao = $_POST['tipo_movimentacao'];
     $data = $_POST['data_movimentacao'];
    
-    $financeiro_id = !empty($_POST['financeiro_id']) ? $_POST['financeiro_id'] : "NULL";
-    $projeto_id = !empty($_POST['projeto_id']) ? $_POST['projeto_id'] : "NULL";
+    // Verificando se financeiro_id e projeto_id são vazios e definindo como NULL
+    $financeiro_id = !empty($_POST['financeiro_id']) ? $_POST['financeiro_id'] : NULL;
+    $projeto_id = !empty($_POST['projeto_id']) ? $_POST['projeto_id'] : NULL;
 
+    // Usando prepared statements para evitar SQL Injection
     $sqlUpdate = "UPDATE estoque SET
-        produto='$produto',  
-        quantidade_total='$qtd',  
-        tipo_movimentacao='$movimentacao',  
-        data_movimentacao='$data',
-        projeto_id=$projeto_id,
-        financeiro_id=$financeiro_id
-    WHERE id=$id";
+        produto = ?,  
+        quantidade_total = ?,  
+        tipo_movimentacao = ?,  
+        data_movimentacao = ?, 
+        projeto_id = ?, 
+        financeiro_id = ? 
+        WHERE id = ?";
 
-    if ($conexao->query($sqlUpdate) === TRUE) {
-        header("Location: ../listas/sistema-estoque.php");
+    // Prepara a consulta
+    if ($stmt = $conexao->prepare($sqlUpdate)) {
+        // Vincula os parâmetros (types: s = string, i = integer)
+        $stmt->bind_param("sissiii", $produto, $qtd, $movimentacao, $data, $projeto_id, $financeiro_id, $id);
+        
+        // Executa a consulta
+        if ($stmt->execute()) {
+            header("Location: ../listas/sistema-estoque.php");
+        } else {
+            echo "Erro ao atualizar o registro: " . $stmt->error;
+        }
+
+        // Fecha a declaração
+        $stmt->close();
     } else {
-        echo "Erro ao atualizar o registro: " . $conexao->error;
+        echo "Erro na preparação da consulta: " . $conexao->error;
     }
 } else {
     header("Location: ../listas/sistema-estoque.php");

@@ -78,7 +78,7 @@ if (!empty($_GET['id'])) {
                 <input type="submit" name="submit" value="Salvar" id="botao">
             </form>
 
-            <a href="../listas/sistema-projeto.php">Voltar</a>
+            <!-- <a href="../listas/sistema-projeto.php">Voltar</a> -->
 
         </div>
     </section>

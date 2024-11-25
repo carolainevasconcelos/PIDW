@@ -36,12 +36,9 @@ $result_projeto = $conexao->query($sql_projeto);
                 <li><a href="pagProjeto.php">Projetos</a></li>
                 <li><a href="../pagUsuarios-cliente.php">Home</a></li>
                 <li><a href="">Financeiro</a></li>
-                <li><a href="">Atendimento</a></li>
+                <li><a href="atendimento.php">Atendimento</a></li>
             </ul>
             <div class="auth-profile">
-                <div class="profile">
-                    <img src="../img/profile-icon.png" alt="User Profile" class="profile-icon">
-                </div>
                 <a href="../../controle/sair.php" class="logout">Sair</a>
             </div>
         </nav>
@@ -57,15 +54,18 @@ $result_projeto = $conexao->query($sql_projeto);
                 </tr>
             </thead>
             <tbody>
-                <?php
+            <?php
+                // Agora estamos usando a variável correta $result_projeto
                 while ($user_data = mysqli_fetch_assoc($result_projeto)) {
                     echo "<tr>";
-                    echo "<td>" . $user_data['valor'] . "</td>";
-                    echo "<td>" . $user_data['descricao'] . "</td>";
-                    echo "<td>" . $user_data['data'] . "</td>";
+                        echo "<td>" . number_format($user_data['valor'], 2, ',', '.') . "</td>"; 
+                        echo "<td>" . $user_data['descricao'] . "</td>";
+                        echo "<td>" . date('d/m/Y', strtotime($user_data['data'])) . "</td>"; 
+                        echo "<td>" . $user_data['projeto_id'] . "</td>";
+                        echo "<td>" . $user_data['fornecedor_id'] . "</td>";
                     echo "</tr>";
                 }
-                ?>
+            ?>
             </tbody>
         </table>
     </div>

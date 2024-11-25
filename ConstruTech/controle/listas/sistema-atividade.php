@@ -60,12 +60,12 @@ $result_projeto = $conexao->query($sql_projeto);
                         echo "<td>" . $user_data['status'] . "</td>";
                         echo "<td>" . $user_data['nome_projeto'] . "</td>";
                         echo "<td>
-                            <a class='image' href='../update/edit-atividade.php?id=" . $user_data['id'] . "'>
+                            <a class='image' href='../../controle/update/edit-atividade.php?id=" . $user_data['id'] . "'>
                                 <img src='../../visao/img/image-pencil.png' alt='Editar'>
                             </a>
                         </td>";
                         echo "<td>
-                            <a class='image' href='../delete/delete-atividade.php?id=" . $user_data['id'] . "'>
+                            <a class='image' href='../../controle/delete/delete-atividade.php?id=" . $user_data['id'] . "'>
                                 <img src='../../visao/img/image-lixeira.png' alt='Deletar'>
                             </a>
                         </td>";

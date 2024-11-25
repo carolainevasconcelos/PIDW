@@ -67,12 +67,12 @@ if (!empty($_GET['id'])) {
                 <!-- Campo oculto para o ID do item no estoque -->
                 <input type="hidden" name="id" value="<?php echo htmlspecialchars($id); ?>">
 
-                <input type="submit" name="submit" value="Salvar" id="botao">
-            </form>
+                <input type="submit" name="update" value="Salvar" id="botao">
+                </form>
 
-            <div>
+            <!-- <div>
                 <a href="../listas/sistema-estoque.php">Voltar</a>
-            </div>
+            </div> -->
         </div>
     </section>
 </body>

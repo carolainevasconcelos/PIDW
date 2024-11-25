@@ -94,7 +94,7 @@ if (!empty($_GET['id'])) {
             </form>
 
 
-            <a href="../listas/sistema-funcionario.php">Voltar</a>
+            <!-- <a href="../listas/sistema-funcionario.php">Voltar</a> -->
 
         </div>
     </section>

@@ -96,27 +96,6 @@ input:focus ~ label, input:valid ~ label{
     top: 20px;
 }
     
-.button{
-    width: 100%;
-    height: 40px;
-    margin-top: 15px;
-    border-radius: 40px;
-    border: none;
-    background: #ffc904;
-    color: #0f0f0f;
-    box-direction: none;
-    outline: none;
-    cursor: pointer;
-    font-size: 1em;
-    font-weight: 600;
-}
-
-.button-container {
-    display: flex;
-    justify-content: flex-end;  
-    margin-top: 20px;           
-}
-
 .buttons{
     background: #ffc904;
     font-weight: 600;

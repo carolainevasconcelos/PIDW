@@ -17,7 +17,7 @@ if (isset($_POST['submit'])) {
         if (mysqli_num_rows($resultado) > 0) {
             $sqlUpdate = "UPDATE Cliente SET senha = '$senhaCriptografada' WHERE cpf = '$usuario' OR cnpj = '$usuario'";
             if (mysqli_query($conexao, $sqlUpdate)) {
-                header('Location: ../visao/loginPag.php'); // enviar para outro caminho
+                header('Location: ../visao/loginPag.php'); 
                 exit;
             } else {
                 echo "<script>alert('Erro ao atualizar a senha no Cliente.');</script>";

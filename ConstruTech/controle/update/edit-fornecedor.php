@@ -81,9 +81,9 @@ if (!empty($_GET['id'])) {
                 </div>
             </form>
 
-            <div>
+            <!-- <div>
                 <a href="../listas/sistema-fornecedor.php">Voltar</a>
-            </div>
+            </div> -->
         </div>
     </section>
 </body>

@@ -29,23 +29,20 @@ $result_projeto = $conexao->query($sql_projeto);
 </head>
 
 <body>
-<header>
+    <header>
         <nav>
             <div class="logo">
                 <img src="../../visao/img/ferramentas.png" alt="logo" id="logo">
                 <p>ConstruTech</p>
             </div>
             <ul>
-                <li><a href="../formularios/atividade_form.php">Atividade</a></li>
+                <li><a href="../../visao/paginas/cadastroColab.php">Cadastro</a></li>
                 <li><a href="../../visao/paginas/pagCronograma.php">Cronograma</a></li>
                 <li><a href="../../visao/pagUsuarios-colab.php">Home</a></li>
                 <li><a href="">Estoque</a></li>
                 <li><a href="sistema-equipamento.php">Equipamentos</a></li>
             </ul>
             <div class="auth-profile">
-                <div class="profile">
-                    <img src="../../visao/img/profile-icon.png" alt="User Profile" class="profile-icon">
-                </div>
                 <a href="../sair.php" class="logout">Sair</a>
             </div>
         </nav>
@@ -67,18 +64,18 @@ $result_projeto = $conexao->query($sql_projeto);
                 <?php
                 while ($user_data = mysqli_fetch_assoc($result_projeto)) {
                     echo "<tr>";
-                        echo "<td>" . $user_data['id'] . "</td>";
-                        echo "<td>" . $user_data['produto'] . "</td>";
-                        echo "<td>" . $user_data['quantidade_total'] . "</td>";
-                        echo "<td>" . $user_data['tipo_movimentacao'] . "</td>";
-                        echo "<td>" . $user_data['projeto_id'] . "</td>";
-                        echo "<td>" . $user_data['financeiro_id'] . "</td>";
-                        echo "<td>
+                    echo "<td>" . $user_data['id'] . "</td>";
+                    echo "<td>" . $user_data['produto'] . "</td>";
+                    echo "<td>" . $user_data['quantidade_total'] . "</td>";
+                    echo "<td>" . $user_data['tipo_movimentacao'] . "</td>";
+                    echo "<td>" . $user_data['projeto_id'] . "</td>";
+                    echo "<td>" . $user_data['financeiro_id'] . "</td>";
+                    echo "<td>
                             <a class='image' href='../update/edit-estoque.php?id=" . $user_data['id'] . "'>
                                 <img src='../../visao/img/image-pencil.png' alt='Editar'>
                             </a>
                         </td>";
-                            echo "<td>
+                    echo "<td>
                             <a class='image' href='../delete/delete-estoque.php?id=" . $user_data['id'] . "'>
                                 <img src='../../visao/img/image-lixeira.png' alt='Deletar'>
                             </a>
@@ -93,4 +90,5 @@ $result_projeto = $conexao->query($sql_projeto);
         <p>© ConstruTech - 2024</p>
     </footer>
 </body>
+
 </html>

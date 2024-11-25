@@ -26,9 +26,6 @@
                 <li><a href="cadastro.php">Cadastro</a></li>
             </ul>
             <div class="auth-profile">
-                <div class="profile">
-                    <img src="../img/profile-icon.png" alt="User Profile" class="profile-icon">
-                </div>
                 <a href="../../controle/sair.php" class="logout">Sair</a>
             </div>
         </nav>

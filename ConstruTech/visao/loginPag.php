@@ -32,12 +32,20 @@
                         <label for="">Senha</label>
                     </div>
                     <a href="esqueceu.php" class="link">Esqueceu sua senha?</a>
-                    <input type="submit" class="button" name="submit" value="Entrar">
+                    <div class="button-container">
+                        <input type="submit" class="buttons" name="submit" value="Entrar">
+                        <button type="button" class="buttons" id="voltarBotao">Voltar</button>
+                        </div>
                     <a href="../controle/definirSenha.php" class="link" id="create-password">&#9872; Crie uma senha</a>
                 </form>
             </div>
         </div>
     </section>
+    <script>
+        document.getElementById("voltarBotao").addEventListener("click", function () {
+            window.location.href = "index.php";
+        });
+    </script>
 </body>
 
 </html>

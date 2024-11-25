@@ -18,16 +18,25 @@ if (isset($_POST['submit'])) {
         $stmt->bind_param("sssssii", $nome, $descricao, $data_inicio, $data_termino, $statu, $cliente_id, $id);
 
         if ($stmt->execute()) {
-            echo "Projeto atualizado com sucesso!"; // fazer js
+            echo "<script>
+                    alert('Projeto atualizado com sucesso!');
+                    window.location.href = '../../visao/paginas/cadastro.php';
+                  </script>";
         } else {
-            echo "Erro ao atualizar projeto: " . $stmt->error; // fazer js
+            echo "<script>
+                    alert('Erro ao atualizar projeto: " . $stmt->error . "');
+                    window.location.href = '../../visao/paginas/pagProjeto-adm.php';
+                  </script>";
         }
 
         $stmt->close();
     } else {
-        echo "Erro: Todos os campos obrigatórios devem ser preenchidos."; // fazer js
+        echo "<script>
+                alert('Erro: Todos os campos obrigatórios devem ser preenchidos.');
+                window.location.href = '../../visao/paginas/pagProjeto-adm.php';
+              </script>";
     }
 } else {
-    header("Location: Location: ../../visao/paginas/pagProjeto-adm.php");
+    header("Location: ../../visao/paginas/pagProjeto-adm.php");
 }
 ?>

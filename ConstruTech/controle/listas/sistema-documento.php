@@ -1,6 +1,6 @@
 <?php
 session_start();
-// include_once('../conexao-bd.php');
+include_once('../../controle/conexao-bd.php');
 
 if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == true)) {
     unset($_SESSION['usuario']);
@@ -11,20 +11,17 @@ if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == tr
 $logado = $_SESSION['usuario'];
 
 $sql_documentos = "SELECT * FROM Documentos ORDER BY id ASC"; 
-
 $result_documentos = $conexao->query($sql_documentos);
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema</title>
     <link rel="stylesheet" href="../../visao/css/styleListas.css">
 </head>
-
 <body>
     <h1>Documentos</h1>
     <div>
@@ -49,7 +46,7 @@ $result_documentos = $conexao->query($sql_documentos);
                     echo "<td>" . $user_data['descricao'] . "</td>"; 
                     echo "<td>" . $user_data['data_geracao'] . "</td>"; 
                     echo "<td>" . $user_data['data_emissao'] . "</td>"; 
-                    echo "<td>" . $user_data['arquivo'] . "</td>"; 
+                    echo "<td><a id='downloadArquivo' href='../../visao/img/" . $user_data['arquivo'] . "' download>Baixar Arquivo</a></td>";
                     echo "<td>" . $user_data['projeto_id'] . "</td>"; 
                     echo "<td>
                         <a class='image' href='../../controle/update/edit-documento.php?id=" . $user_data['id'] . "'>
@@ -66,5 +63,4 @@ $result_documentos = $conexao->query($sql_documentos);
         </table>
     </div>
 </body>
-
 </html>

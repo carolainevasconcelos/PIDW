@@ -31,7 +31,7 @@
             <!-- Menu para desktop -->
             <nav class="menu-desktop">
                 <ul>
-                    <li><a href="#">ConstruTech</a></li>
+                    <li><a href="paginas/sobreempresa.php">ConstruTech</a></li>
                     <li><a href="#">Início</a></li>
                     <li><a href="#">Serviços</a></li>
                     <li><a href="#">Loja</a></li>

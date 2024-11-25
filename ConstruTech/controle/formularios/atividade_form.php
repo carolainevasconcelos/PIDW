@@ -11,11 +11,15 @@ $projeto_id = $_POST['projeto_id'] ?? null;
 
 if (isset($_POST['submit'])) {
     if (!empty($nome) && !empty($descricao) && !empty($data_inicio) && !empty($statu) && !empty($funcionario_id) && !empty($projeto_id)) {
-        $query = "INSERT INTO Atividade (nome_atividade, descricao, data_inicio, data_termino, status, funcionario_id, projeto_id) VALUES ('$nome', '$descricao', '$data_inicio', '$data_termino', '$statu', '$funcionario_id', '$projeto_id')";
-
+        $query = "INSERT INTO Atividade (nome_atividade, descricao, data_inicio, data_termino, status, funcionario_id, projeto_id) 
+                  VALUES ('$nome', '$descricao', '$data_inicio', '$data_termino', '$statu', '$funcionario_id', '$projeto_id')";
         $resultado = mysqli_query($conexao, $query);
 
         if ($resultado) {
+            $notificacao = "Nova atividade cadastrada: $nome";
+            $query_notificacao = "INSERT INTO Notificacoes (mensagem) VALUES ('$notificacao')";
+            mysqli_query($conexao, $query_notificacao);
+
             echo "<script>alert('Cadastro realizado com sucesso!');</script>";
         } else {
             echo "<script>alert('Erro ao cadastrar: " . mysqli_error($conexao) . "');</script>";
@@ -48,7 +52,7 @@ if (isset($_POST['submit'])) {
                 <div class="profile">
                     <img src="../../visao/img/profile-icon.png" alt="User Profile" class="profile-icon">
                 </div>
-                <a href="../../visao/paginas/cadastro.php" class="logout">Voltar</a>
+                <a href="../../visao/paginas/cadastroColab.php" class="logout">Voltar</a>
                 <a href="../sair.php" class="logout">Sair</a>
             </div>
         </nav>
@@ -58,7 +62,6 @@ if (isset($_POST['submit'])) {
         <div class="form-container" id="div-atividade">
             <form action="" method="POST">
                 <div class="titulo">
-                    <!-- <img src="../../visao/img/ferramentas.png" alt=""> -->
                     <h1>Cadastrar Atividade</h1>
                 </div>
 

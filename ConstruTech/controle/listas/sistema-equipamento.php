@@ -29,23 +29,20 @@ $result_equipamento = $conexao->query($sql_equipamento);
 </head>
 
 <body>
-<header>
+    <header>
         <nav>
             <div class="logo">
                 <img src="../../visao/img/ferramentas.png" alt="logo" id="logo">
                 <p>ConstruTech</p>
             </div>
             <ul>
-                <li><a href="../formularios/atividade_form.php">Atividade</a></li>
+                <li><a href="../../visao/paginas/cadastroColab.php">Cadastro</a></li>
                 <li><a href="../../visao/paginas/pagCronograma.php">Cronograma</a></li>
                 <li><a href="../../visao/pagUsuarios-colab.php">Home</a></li>
                 <li><a href="sistema-estoque.php">Estoque</a></li>
                 <li><a href="">Equipamentos</a></li>
             </ul>
             <div class="auth-profile">
-                <div class="profile">
-                    <img src="../../visao/img/profile-icon.png" alt="User Profile" class="profile-icon">
-                </div>
                 <a href="../sair.php" class="logout">Sair</a>
             </div>
         </nav>
@@ -80,7 +77,7 @@ $result_equipamento = $conexao->query($sql_equipamento);
                             <img src='../../visao/img/image-pencil.png' alt='Editar'>
                         </a>
                     </td>";
-                        echo "<td>
+                    echo "<td>
                         <a class='image' href='../delete/delete-equipamento.php?id=" . $user_data['id'] . "'>
                             <img src='../../visao/img/image-lixeira.png' alt='Deletar'>
                         </a>

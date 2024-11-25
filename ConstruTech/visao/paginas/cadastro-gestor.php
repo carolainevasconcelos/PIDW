@@ -23,14 +23,11 @@
                 <li><a href="pagCronograma-gestor.php">Cronograma</a></li>
                 <li><a href="../pagUsuarios-gestor.php">Home</a></li>
                 <li><a href="pagDoc-gestor.php">Documentos</a></li>
-                <li><a href="">Financeiro</a></li>
+                <li><a href="pagFinanceiro-gestor.php">Financeiro</a></li>
                 <li><a href="pagFornecedor-gestor.php">Fornecedores</a></li>
                 <li><a href="">Cadastro</a></li>
             </ul>
             <div class="auth-profile">
-                <div class="profile">
-                    <img src="../img/profile-icon.png" alt="User Profile" class="profile-icon">
-                </div>
                 <a href="../../controle/sair.php" class="logout">Sair</a>
             </div>
         </nav>
